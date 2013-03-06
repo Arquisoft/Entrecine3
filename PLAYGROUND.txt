@@ -1,2 +1,4 @@
+Cambio de Labra sin conflictos con Jorge
 This is just a file to play with Version control...
 Labra desde linea de comandos 
+Cambios de Labra sin conocer los cambios de Jorge
