@@ -7,4 +7,3 @@ Author
 ======
 Jose Emilio Labra Gayo
 
-Pablo Alonso González
