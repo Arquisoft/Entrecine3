@@ -9,6 +9,8 @@ Jorge Cabal Amieva
 
 Pablo Alonso González
 
+Ezequiel Cimadevilla Álvarez
+
 Contributor
 ======
 Jose Emilio Labra Gayo
