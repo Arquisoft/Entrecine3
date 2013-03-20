@@ -11,6 +11,10 @@ Pablo Alonso González
 
 Ezequiel Cimadevilla Álvarez
 
+Pablo Fernández Rodríguez
+
+Alejandro Álvarez Caso
+
 Contributor
 ======
 Jose Emilio Labra Gayo
