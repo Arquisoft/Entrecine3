@@ -7,6 +7,8 @@ Author
 ======
 Jorge Cabal Amieva
 
+Pablo Alonso González
+
 Contributor
 ======
 Jose Emilio Labra Gayo
