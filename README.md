@@ -1,7 +1,7 @@
 Entrecine 3
 ===========
 
-Simple blank project for the Software Architecture course
+Proyecto de "Entrecine" correspondiente a la asignatura de Arquitectura del Software de la Escuela de Ingeniería Informática de Oviedo.
 
 Author
 ======
