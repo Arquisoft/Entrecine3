@@ -1,0 +1,50 @@
+
+Importing Model from XMI
+Root Package: Components
+Add Classifier: SGBD
+Add Classifier: Gestión de venta
+Add Classifier: Cartelera
+Add Classifier: Component2
+Add Classifier: Component1
+Add Classifier: Gestión física del cine
+Add Classifier: Interfaz de escritorio
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Consultar
+Add Classifier Role: Part1
+Add Classifier Role: Compra
+Add Classifier Role: Eliminar sala
+Add Classifier Role: RequiredInterface
+Add Classifier Role: Actualizar
+Add Classifier Role: Actualizar sala
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Eliminar sala
+Add Classifier Role: Consultar
+Add Classifier Role: Recuperar datos
+Add Classifier Role: ProvidedInterface1
+Add Classifier Role: Actualizar precios
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Actualizar
+Add Classifier Role: Actualizar sala
+Add Classifier Role: Añadir sala
+Add Classifier Role: Compra
+Add Classifier Role: Añadir sala
+Add Classifier Role: Actualizar precios
+Resolving Classifiers
+Resolving Owners
+Resolve Package Links
+Add Extensions
+Add Diagrams
+Adding Diagram : Components
+Adding Elements to Diagram : Components
+Error adding notelink
+Error adding notelink
+Error adding notelink
+Error adding notelink
+Resolving DiagramIDs
+Adding Links to Diagram : Components
+Resolving Association Classes
+Resolving Parameter Types
+Resolving Attribute Types
+Resolving Note links
+Fixup external references
+Import Complete!

@@ -1,0 +1,22 @@
+
+Importing Model from XMI
+Root Package: Configuración
+Add Classifier: Subsistema de configuración
+Add Classifier: Interfaz de configuración
+Add Classifier Role: enviarOpcionConfiguracion
+Add Classifier Role: aceptarCambio
+Resolving Classifiers
+Resolving Owners
+Resolve Package Links
+Add Extensions
+Add Diagrams
+Adding Diagram : Vista de onfiguración
+Adding Elements to Diagram : Vista de onfiguración
+Resolving DiagramIDs
+Adding Links to Diagram : Vista de onfiguración
+Resolving Association Classes
+Resolving Parameter Types
+Resolving Attribute Types
+Resolving Note links
+Fixup external references
+Import Complete!

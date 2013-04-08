@@ -1,0 +1,44 @@
+
+Importing Model from XMI
+Root Package: Components
+Add Classifier: Gestion de ventas
+Add Classifier: Interfaz de escritorio
+Add Classifier: Registro
+Add Classifier: Autentificación
+Add Classifier: Interface2
+Add Classifier: Cartelera
+Add Classifier: Database
+Add Classifier: SGBD
+Add Classifier: Interfaz web
+Add Classifier: Interface1
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Registrar
+Add Classifier Role: Comprar
+Add Classifier Role: Comprar
+Add Classifier Role: Consultar
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Loggin
+Add Classifier Role: Consultar
+Add Classifier Role: Loggin
+Add Classifier Role: Loggout
+Add Classifier Role: Recuperar datos
+Add Classifier Role: Registrar
+Add Classifier Role: Loggout
+Resolving Classifiers
+Resolving Owners
+Resolve Package Links
+Add Extensions
+Add Diagrams
+Adding Diagram : Components
+Adding Elements to Diagram : Components
+Error adding notelink
+Resolving DiagramIDs
+Adding Links to Diagram : Components
+Resolving Association Classes
+Resolving Parameter Types
+Resolving Attribute Types
+Resolving Note links
+Fixup external references
+Import Complete!
