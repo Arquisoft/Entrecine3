@@ -21,4 +21,4 @@ test-result
 server.pid
 *.iml
 *.eml
-/bin
+bin/
