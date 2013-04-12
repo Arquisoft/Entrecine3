@@ -1,19 +1,19 @@
 Entrecine 3
 ===========
 
-Proyecto de "Entrecine" correspondiente a la asignatura de Arquitectura del Software de la Escuela de Ingeniería Informática de Oviedo.
+Proyecto de "Entrecine" correspondiente a la asignatura de Arquitectura del Software de la Escuela de IngenierÃ­a InformÃ¡tica de Oviedo.
 
 Author
-======
+==========
 Jorge Cabal Amieva
 
-Pablo Alonso González
+Pablo Alonso GonzÃ¡lez
 
-Ezequiel Cimadevilla Álvarez
+Ezequiel Cimadevilla Ã�lvarez
 
-Pablo Fernández Rodríguez
+Pablo FernÃ¡ndez RodrÃ­guez
 
-Alejandro Álvarez Caso
+Alejandro Ã�lvarez Caso
 
 Contributor
 ======
