@@ -261,9 +261,9 @@
 			<properties />
 		</developer>
 		<developer>
-			<id>uo2017</id>
-			<name>Abdón Rodríguez Pérez</name>
-			<email>uo2017@uniovi.es</email>
+			<id>uo216752</id>
+			<name>Jorge Cabal Amieva</name>
+			<email>uo216752@uniovi.es</email>
 			<organization>WESO-University of Oviedo</organization>
 			<organizationUrl>http://www.uniovi.es</organizationUrl>
 			<roles>
@@ -274,9 +274,35 @@
 			<properties />
 		</developer>
 		<developer>
-			<id>oscarrb</id>
-			<name>Óscar Rodríguez Pérez</name>
-			<email>uo218751@uniovi.es</email>
+			<id>uo217252</id>
+			<name>Ezequiel Cimadevilla Álvarez</name>
+			<email>uo217252@uniovi.es</email>
+			<organization>WESO-University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>
+				<role>Developer</role>
+				<role>Student</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		<developer>
+			<id>uo218179</id>
+			<name>Pablo Alonso González</name>
+			<email>uo218179@uniovi.es</email>
+			<organization>WESO-University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>
+				<role>Developer</role>
+				<role>Student</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		<developer>
+			<id>uo205650</id>
+			<name>Alejandro Álvarez Caso</name>
+			<email>uo205650@uniovi.es</email>
 			<organization>WESO-University of Oviedo</organization>
 			<organizationUrl>http://www.uniovi.es</organizationUrl>
 			<roles>

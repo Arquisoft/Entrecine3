@@ -7,13 +7,11 @@ Author
 ==========
 Jorge Cabal Amieva
 
-Pablo Alonso GonzÃ¡lez
+Pablo Alonso González
 
-Ezequiel Cimadevilla Ã�lvarez - Cambiandooo
+Ezequiel Cimadevilla Ávarez
 
-Pablo FernÃ¡ndez RodrÃ­guez
-
-Alejandro Ã�lvarez Caso
+Alejandro Álvarez Caso
 
 Contributor
 ======
