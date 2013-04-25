@@ -1,0 +1,22 @@
+@(peliculas: List[Pelicula])
+
+@import helper._
+
+<!-- El argumento del main es lo que sale en la pestaña del navegador -->
+
+@main("Cartelera") {
+    
+    <h1> Cines Entrecine3 </h1>
+    
+    <ul>
+    @for(pelicula <- peliculas){
+    	<li>
+    		@pelicula.getTitulo() : Entradas disponibles->@pelicula.getEntradasDisponibles()
+    		@form(routes.Application.comprarEntrada){
+    			<input type="submit" value="Comprar">
+    		}
+    	</li>
+    }
+    </ul>
+    
+}
