@@ -1,4 +1,4 @@
 Rama para la parte web de la arquitectura.
 
-Aplicación empleando el FrameWork Play.
+Aplicación empleando el FrameWork Play 2.1, que utiliza el patrón MVC.
 Será conectada a la misma base de datos con la que está conectada la aplicación de escritorio, creada en MySQL.
