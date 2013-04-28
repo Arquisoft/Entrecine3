@@ -3,7 +3,11 @@ package conf;
 import java.io.IOException;
 import java.util.Properties;
 
-
+/**
+ * Clase para la lectura de las sentencias sql en un fichero externalizado
+ * @author Project Team Entrecine3
+ *
+ */
 public class Conf {
 
 	private static final String CONF_FILE = "configuration.properties";
