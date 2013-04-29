@@ -2,18 +2,32 @@ package model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Clase del modelo que representa una proyección en el dominio
  * @author Project Team Entrecine3
  *
  */
+@Entity
+@Table(name="TProyecciones")
 public class Proyeccion {
 	
-	private int idProyeccion;
+	@Id @GeneratedValue private int idProyeccion;
 	private int idPelicula;
 	private int idSala;
 	private int tipoProyeccion;
 	private Timestamp fechaProyeccion;
+	
+	/**
+	 * Constructor por omisión
+	 */
+	public Proyeccion(){
+		
+	}
 	
 	/**
 	 * Constructor parametrizado con los índices

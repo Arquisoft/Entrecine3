@@ -2,15 +2,29 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TDatos_bancarios")
 public class DatosBancarios {
 	
-	private int idDatosBancarios;
+	@Id @GeneratedValue private int idDatosBancarios;
 	private int idCliente;
 	private int numTarjeta;
 	private String nombre;
 	private String apellidos;
 	private int pin;
 	private Date fechaCaducidad;
+	
+	/**
+	 * Constructor por omisión
+	 */
+	public DatosBancarios(){
+		
+	}
 	
 	/**
 	 * Constructor parametrizado. Obligamos a insertar siempre el cliente asociado.

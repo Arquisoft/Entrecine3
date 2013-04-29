@@ -1,13 +1,20 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Clase del modelo que representa los tipos de proyección
  * @author Project Team Entrecine3
  *
  */
+@Entity
+@Table(name="TTipo_Proyeccion")
 public class TipoProyeccion {
 	
-	private int idTipoProyeccion;
+	@Id @GeneratedValue private int idTipoProyeccion;
 	private String nombre;
 	private float precio;
 	

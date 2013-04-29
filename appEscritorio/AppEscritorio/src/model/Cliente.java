@@ -2,14 +2,21 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Clase de modelo que representa un cliente en el dominio
  * @author Project Team Entrecine3
  *
  */
+@Entity
+@Table(name="TCliente")
 public class Cliente {
 	
-	private int idCliente;
+	@Id @GeneratedValue private int idCliente;
 	private String dni;
 	private String nombre;
 	private String apellidos;
