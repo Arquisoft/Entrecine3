@@ -1,4 +1,4 @@
-@(peliculas: List[Pelicula])
+@(peliculas: List[Pelicula], formularioPeli: Form[Pelicula])
 
 @import helper._
 
@@ -11,12 +11,20 @@
     <ul>
     @for(pelicula <- peliculas){
     	<li>
-    		@pelicula.getTitulo() : Entradas disponibles->@pelicula.getEntradasDisponibles()
-    		@form(routes.Application.comprarEntrada){
-    			<input type="submit" value="Comprar">
+    		@pelicula.getTitulo()
+    		@form(routes.Application.borrar(pelicula.getId())){
+    			<input type="submit" value="Borrar">
     		}
     	</li>
     }
     </ul>
+    
+    <h2>Añadir nueva película</h2>
+    
+   
+    @form(routes.Application.nuevaPelicula()){
+    	@inputText(formularioPeli("label"))
+    	<input type="submit" value="create">
+    }
     
 }

@@ -1,16 +1,28 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import play.data.validation.Constraints.Required;
+
 public class Pelicula {
 	
+	@Required
 	private Long id;
 	
 	private String titulo;
 	private int entradasDisponibles;
 	
-	public Pelicula(String titulo, int entradasDisponibles) {
-		super();
-		this.titulo = titulo;
-		this.entradasDisponibles = entradasDisponibles;
+	public static List<Pelicula> all(){
+		return new ArrayList<Pelicula>();
+	}
+	
+	public static void crearPelicula(Pelicula pelicula){
+		
+	}
+	
+	public static void borrarPeli(Long id){
+		
 	}
 	
 	public Long getId() {
@@ -21,11 +33,6 @@ public class Pelicula {
 	}
 	public int getEntradasDisponibles() {
 		return entradasDisponibles;
-	}
-	
-	public void comprar(){
-		if(entradasDisponibles > 0)
-			entradasDisponibles--;
 	}
 
 }

@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Pelicula;
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
 
 public class Application extends Controller {
-	
-	static List<Pelicula> pelis = new ArrayList<Pelicula>();
   
     public static Result index() {
         //return ok(index.render("Hola mundo!")); //utiliza la plantilla app/views/index.scala.html
@@ -19,13 +18,26 @@ public class Application extends Controller {
     }
     
     public static Result peliculas(){
-    	pelis.add(new Pelicula("pelicula1", 10));
-    	return ok(index.render(pelis));
+    	return ok(index.render(Pelicula.all(), formularioPelicula));
     }
     
-    public static Result comprarEntrada(){
-    	pelis.get(0).comprar();
-    	return redirect(routes.Application.peliculas());
+    public static Result nuevaPelicula(){
+    	Form<Pelicula> filledForm = formularioPelicula.bindFromRequest();
+    	  if(filledForm.hasErrors()) {
+    	    return badRequest(
+    	      views.html.index.render(Pelicula.all(), filledForm)
+    	    );
+    	  } else {
+    		  Pelicula.crearPelicula(filledForm.get());
+    	    return redirect(routes.Application.peliculas());  
+    	  }
     }
+    
+    public static Result borrar(Long id){
+    	return TODO;
+    }
+    
+    static List<Pelicula> pelis = new ArrayList<Pelicula>();
+	static Form<Pelicula> formularioPelicula = Form.form(Pelicula.class);
   
 }
