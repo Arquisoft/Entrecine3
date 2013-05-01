@@ -43,5 +43,10 @@ public class Sala {
 	public void setTipoSala(String tipoSala) {
 		this.tipoSala = tipoSala;
 	}
-
+	@Override
+	public String toString() {
+		return "Sala [idSala=" + idSala + ", numSala=" + numSala
+				+ ", numButacas=" + numButacas + ", tipoSala=" + tipoSala + "]";
+	}
+	
 }

@@ -83,26 +83,26 @@ public class TipoProyeccionGatewayImpl implements TipoProyeccionGateway {
 	}
 
 	@Override
-	public void save(String nombre, float precio) throws SQLException {
+	public void save(String nombre, double precio) throws SQLException {
 		PreparedStatement pst = null;
 
 		pst = connection.prepareStatement(Conf.get("SQL_ADD_TIPO_PROYECCION"));
 
 		pst.setString(1, nombre);
-		pst.setFloat(2, precio);
+		pst.setDouble(2, precio);
 
 		pst.executeUpdate();
 
 	}
 
 	@Override
-	public void delete(Long id) throws SQLException {
+	public void delete(String nombreTipo) throws SQLException {
 
 		PreparedStatement pst = null;
 		pst = connection.prepareStatement(Conf
 				.get("SQL_DELETE_TIPO_PROYECCION"));
 
-		pst.setLong(1, id);
+		pst.setString(1, nombreTipo);
 		pst.executeUpdate();
 
 	}

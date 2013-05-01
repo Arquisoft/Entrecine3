@@ -12,6 +12,6 @@ public interface SalaGateway {
 	public List<Sala> findAll();
 	public Sala findById(int id);
 	public void save(int numSala, int numButacas, String tipoSala) throws SQLException;
-	public void delete(Long id) throws SQLException;
+	public void delete(int numSala) throws SQLException;
 
 }

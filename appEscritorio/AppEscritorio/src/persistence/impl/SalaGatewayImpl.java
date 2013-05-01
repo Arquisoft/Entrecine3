@@ -101,12 +101,12 @@ public class SalaGatewayImpl implements SalaGateway{
 	}
 
 	@Override
-	public void delete(Long id) throws SQLException {
+	public void delete(int numSala) throws SQLException {
 		PreparedStatement pst = null;
 		pst = connection.prepareStatement(Conf
 				.get("SQL_DELETE_SALA"));
 
-		pst.setLong(1, id);
+		pst.setInt(1, numSala);
 		pst.executeUpdate();
 		
 	}

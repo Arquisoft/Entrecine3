@@ -76,4 +76,13 @@ public class DatosBancarios {
 	public void setFechaCaducidad(Date fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
 	}
+
+	@Override
+	public String toString() {
+		return "DatosBancarios [idDatosBancarios=" + idDatosBancarios
+				+ ", idCliente=" + idCliente + ", numTarjeta=" + numTarjeta
+				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", pin="
+				+ pin + ", fechaCaducidad=" + fechaCaducidad + "]";
+	}
+	
 }

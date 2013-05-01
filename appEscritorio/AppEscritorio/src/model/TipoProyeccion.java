@@ -16,7 +16,7 @@ public class TipoProyeccion {
 	
 	@Id @GeneratedValue private int idTipoProyeccion;
 	private String nombre;
-	private float precio;
+	private double precio;
 	
 	public int getIdTipoProyeccion() {
 		return idTipoProyeccion;
@@ -30,10 +30,17 @@ public class TipoProyeccion {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public float getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+	@Override
+	public String toString() {
+		return "TipoProyeccion [idTipoProyeccion=" + idTipoProyeccion
+				+ ", nombre=" + nombre + ", precio=" + precio + "]";
+	}
+	
+	
 }

@@ -89,7 +89,7 @@ public class PeliculaGatewayImpl implements PeliculaGateway{
 	}
 
 	@Override
-	public void save(String titulo, Time duracion, String genero,
+	public void save(String titulo, String duracion, String genero,
 			String descripcion, String imagen) throws SQLException {
 		PreparedStatement pst = null;
 
@@ -97,7 +97,7 @@ public class PeliculaGatewayImpl implements PeliculaGateway{
 		pst = connection.prepareStatement(Conf.get("SQL_ADD_MOVIE"));
 		
 		pst.setString(1, titulo);
-		pst.setTime(2, duracion);
+		pst.setString(2, duracion);
 		pst.setString(3, genero);
 		pst.setString(4, descripcion);
 		pst.setString(5, imagen);
@@ -106,12 +106,12 @@ public class PeliculaGatewayImpl implements PeliculaGateway{
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(String titulo) {
 		PreparedStatement pst = null;
 		
 		try {
 			pst = connection.prepareStatement(Conf.get("SQL_DELETE_MOVIE"));
-			pst.setLong(1, id);
+			pst.setString(1, titulo);
 			
 			pst.executeUpdate();
 		} catch (SQLException e) {

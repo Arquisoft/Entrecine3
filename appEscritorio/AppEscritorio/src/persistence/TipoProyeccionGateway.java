@@ -11,7 +11,7 @@ public interface TipoProyeccionGateway {
 	public void setConnection(Connection connection);
 	public List<TipoProyeccion> findAll();
 	public TipoProyeccion findById(int id);
-	public void save(String nombre, float precio) throws SQLException;
-	public void delete(Long id) throws SQLException;
+	public void save(String nombre, double precio) throws SQLException;
+	public void delete(String nombreTipo) throws SQLException;
 
 }

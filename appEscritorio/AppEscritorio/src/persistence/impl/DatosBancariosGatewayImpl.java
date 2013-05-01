@@ -93,7 +93,8 @@ public class DatosBancariosGatewayImpl implements DatosBancariosGateway {
 
 	@Override
 	public void save(int idCliente, int numTarjeta, String nombre,
-			String apellidos, int pin, Date fechaCaducidad) throws SQLException {
+			String apellidos, int pin, int mes_caducidad, int anio_caducidad)
+			throws SQLException {
 
 		PreparedStatement pst = null;
 
@@ -104,32 +105,86 @@ public class DatosBancariosGatewayImpl implements DatosBancariosGateway {
 		pst.setString(3, nombre);
 		pst.setString(4, apellidos);
 		pst.setInt(5, pin);
-		pst.setString(6, converUtilDateToSqlDate(fechaCaducidad));
+		pst.setString(6,
+				String.valueOf(anio_caducidad + "-" + mes_caducidad + "-1"));
 
 		pst.executeUpdate();
 
 	}
 
-	private String converUtilDateToSqlDate(java.util.Date utilDate) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String sqlDate = sdf.format(utilDate);
-		return sqlDate;
-	}
-
 	@Override
-	public void delete(Long id) {
+	public void delete(int numTarjeta) {
 		PreparedStatement pst = null;
 
 		try {
 			pst = connection.prepareStatement(Conf
 					.get("SQL_DELETE_DATOS_BANCARIOS"));
-			pst.setLong(1, id);
+			pst.setInt(1, numTarjeta);
 
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out
 					.println("Error en DatosBancariosGatewayImpl a la hora de borrar, método delete.");
+		}
+
+	}
+
+	@SuppressWarnings("finally")
+	@Override
+	public DatosBancarios findByNumTarjeta(int numTarjeta) {
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		DatosBancarios datosBancarios = new DatosBancarios();
+
+		try {
+			pst = connection.prepareStatement(Conf
+					.get("SQL_FIND_DATOS_BANCARIOS_BY_NUMTARJETA"));
+
+			pst.setInt(1, numTarjeta);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				datosBancarios.setIdDatosBancarios(rs.getInt(1));
+				datosBancarios.setIdCliente(rs.getInt(2));
+				datosBancarios.setNumTarjeta(rs.getInt(3));
+				datosBancarios.setNombre(rs.getString(4));
+				datosBancarios.setApellidos(rs.getString(5));
+				datosBancarios.setPin(rs.getInt(6));
+				datosBancarios.setFechaCaducidad(rs.getDate(7));
+			}
+
+			return datosBancarios;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			datosBancarios = null;
+		} finally {
+			Jdbc.close(rs, pst);
+			return datosBancarios;
+		}
+	}
+
+	@Override
+	public void update(int idDatosBancarios, int idCliente, int numTarjeta,
+			String nombre, String apellidos, int pin, int mes_caducidad,
+			int anio_caducidad) {
+		PreparedStatement pst = null;
+
+		try {
+			pst = connection.prepareStatement(Conf.get("SQL_UPDATE_DATOS_BANCARIOS"));
+			pst.setInt(1, idCliente);
+			pst.setInt(2, numTarjeta);
+			pst.setString(3, nombre);
+			pst.setString(4, apellidos);
+			pst.setInt(5, pin);
+			pst.setString(6,
+					String.valueOf(anio_caducidad + "-" + mes_caducidad + "-1"));
+			pst.setInt(7, idDatosBancarios);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out
+					.println("Error en DatosBancariosGatewayImpl a la hora de UPDATE");
 		}
 
 	}

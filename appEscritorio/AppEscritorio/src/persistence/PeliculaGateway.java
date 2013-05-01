@@ -12,7 +12,7 @@ public interface PeliculaGateway {
 	public void setConnection(Connection connection);
 	public List<Pelicula> findAll();
 	public Pelicula findById(int id);
-	public void save(String titulo, Time duracion, String genero, String descripcion, String imagen) throws SQLException;
-	public void delete(Long id);
+	public void save(String titulo, String duracion, String genero, String descripcion, String imagen) throws SQLException;
+	public void delete(String titulo);
 
 }

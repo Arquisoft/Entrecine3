@@ -16,7 +16,7 @@ import conf.Conf;
 public class ProyeccionGatewayImpl implements ProyeccionGateway {
 
 	private Connection connection;
-	
+
 	@Override
 	public void setConnection(Connection connection) {
 		this.connection = connection;
@@ -88,16 +88,21 @@ public class ProyeccionGatewayImpl implements ProyeccionGateway {
 	}
 
 	@Override
-	public void save(int idPelicula, int idSala, Timestamp fechaProyeccion,
-			int tipoProyeccion) throws SQLException {
-		
+	public void save(int idPelicula, int idSala, int dia_proyeccion,
+			int mes_proyeccion, int anio_proyeccion, int hora_proyeccion,
+			int minuto_proyeccion, int segundo_proyeccion, int tipoProyeccion)
+			throws SQLException {
+
 		PreparedStatement pst = null;
 
 		pst = connection.prepareStatement(Conf.get("SQL_ADD_PROYECCION"));
 
 		pst.setInt(1, idPelicula);
 		pst.setInt(2, idSala);
-		pst.setTimestamp(3, fechaProyeccion);
+		String fechaProyeccion = String.valueOf(anio_proyeccion + "-"
+				+ mes_proyeccion + "-" + dia_proyeccion + " " + hora_proyeccion
+				+ ":" + minuto_proyeccion + ":" + segundo_proyeccion);
+		pst.setString(3, fechaProyeccion);
 		pst.setInt(4, tipoProyeccion);
 
 		pst.executeUpdate();
@@ -105,12 +110,13 @@ public class ProyeccionGatewayImpl implements ProyeccionGateway {
 	}
 
 	@Override
-	public void delete(Long id) throws SQLException {
+	public void delete(int idPelicula, int idSala, int tipoProyeccion) throws SQLException {
 		PreparedStatement pst = null;
-		pst = connection.prepareStatement(Conf
-				.get("SQL_DELETE_PROYECCION"));
+		pst = connection.prepareStatement(Conf.get("SQL_DELETE_PROYECCION"));
 
-		pst.setLong(1, id);
+		pst.setInt(1, idPelicula);
+		pst.setInt(2, idSala);
+		pst.setInt(3, tipoProyeccion);
 		pst.executeUpdate();
 
 	}

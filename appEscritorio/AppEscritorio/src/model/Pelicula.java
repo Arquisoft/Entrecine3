@@ -59,4 +59,12 @@ public class Pelicula {
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
+	@Override
+	public String toString() {
+		return "Pelicula [idPelicula=" + idPelicula + ", titulo=" + titulo
+				+ ", duracion=" + duracion + ", genero=" + genero
+				+ ", descripcion=" + descripcion + ", urlImagen=" + urlImagen
+				+ "]";
+	}
+	
 }

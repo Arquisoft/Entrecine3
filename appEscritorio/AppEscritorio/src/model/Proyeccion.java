@@ -71,4 +71,12 @@ public class Proyeccion {
 	public void setFechaProyeccion(Timestamp fechaProyeccion) {
 		this.fechaProyeccion = fechaProyeccion;
 	}
+
+	@Override
+	public String toString() {
+		return "Proyeccion [idProyeccion=" + idProyeccion + ", idPelicula="
+				+ idPelicula + ", idSala=" + idSala + ", tipoProyeccion="
+				+ tipoProyeccion + ", fechaProyeccion=" + fechaProyeccion + "]";
+	}
+	
 }
