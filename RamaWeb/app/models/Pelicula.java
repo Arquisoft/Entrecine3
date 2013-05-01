@@ -1,28 +1,37 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import play.data.validation.Constraints.Required;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Pelicula {
+import play.data.validation.Constraints.Required;
+import play.db.ebean.Model;
+
+@Entity
+public class Pelicula extends Model {
 	
-	@Required
+	@Id
 	private Long id;
 	
+	@Required
 	private String titulo;
 	private int entradasDisponibles;
 	
+	public static Finder<Long,Pelicula> find = new Finder(
+		    Long.class, Pelicula.class
+		  );
+	
 	public static List<Pelicula> all(){
-		return new ArrayList<Pelicula>();
+		return find.all();
 	}
 	
 	public static void crearPelicula(Pelicula pelicula){
-		
+		pelicula.save();
 	}
 	
 	public static void borrarPeli(Long id){
-		
+		find.ref(id).delete();
 	}
 	
 	public Long getId() {
@@ -33,6 +42,18 @@ public class Pelicula {
 	}
 	public int getEntradasDisponibles() {
 		return entradasDisponibles;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setEntradasDisponibles(int entradasDisponibles) {
+		this.entradasDisponibles = entradasDisponibles;
 	}
 
 }
