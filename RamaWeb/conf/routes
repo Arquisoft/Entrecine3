@@ -4,6 +4,9 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+
+
+
 GET		/peliculas					controllers.Application.peliculas()
 POST    /peliculas                  controllers.Application.nuevaPelicula()
 POST    /peliculas/:id/delete       controllers.Application.borrar(id: Long)

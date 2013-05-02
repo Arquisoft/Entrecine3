@@ -2,25 +2,23 @@ package models;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-import play.data.validation.Constraints.Required;
+import play.data.validation.Constraints.*;
 import play.db.ebean.Model;
 
 @Entity
 public class Pelicula extends Model {
 	
 	@Id
-	private Long id;
+	public Long id;
 	
 	@Required
-	private String titulo;
-	private int entradasDisponibles;
+	public String titulo;
 	
-	public static Finder<Long,Pelicula> find = new Finder(
-		    Long.class, Pelicula.class
-		  );
+	public String descripcion;
+	
+	public static Finder<Long,Pelicula> find = new Finder(Long.class, Pelicula.class);
 	
 	public static List<Pelicula> all(){
 		return find.all();
@@ -33,27 +31,6 @@ public class Pelicula extends Model {
 	public static void borrarPeli(Long id){
 		find.ref(id).delete();
 	}
-	
-	public Long getId() {
-		return id;
-	}
-	public String getTitulo() {
-		return titulo;
-	}
-	public int getEntradasDisponibles() {
-		return entradasDisponibles;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public void setEntradasDisponibles(int entradasDisponibles) {
-		this.entradasDisponibles = entradasDisponibles;
-	}
 
 }
