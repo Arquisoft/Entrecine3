@@ -22,6 +22,10 @@ public class Proyeccion {
 	private int tipoProyeccion;
 	private Timestamp fechaProyeccion;
 	
+	private Pelicula pelicula;
+	private Sala sala;
+	private TipoProyeccion tipoProyeccion;
+	
 	/**
 	 * Constructor por omisión
 	 */

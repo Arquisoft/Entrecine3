@@ -2,25 +2,30 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="TDatos_bancarios")
 public class DatosBancarios {
 	
-	@Id @GeneratedValue private int idDatosBancarios;
-	private int idCliente;
+	@Id @GeneratedValue @Column(name="idDatos_bancarios")private int idDatosBancarios;
+	//private int idCliente;
 	private int numTarjeta;
 	private String nombre;
 	private String apellidos;
 	private int pin;
-	private Date fechaCaducidad;
+	@Temporal(TemporalType.DATE)
+	@Column(name="Fecha_caducidad")private Date fechaCaducidad;
 	
-	@ManyToOne private Cliente cliente;
+	@ManyToOne @JoinColumn(name="idCliente") private Cliente cliente;
 	
 	/**
 	 * Constructor por omisión
@@ -33,14 +38,13 @@ public class DatosBancarios {
 	 * Constructor parametrizado. Obligamos a insertar siempre el cliente asociado.
 	 * @param idCliente cliente asociado
 	 */
-	public DatosBancarios(int idCliente){
-		this.idCliente = idCliente;
+	public DatosBancarios(int numTarjeta){
+		this.numTarjeta = numTarjeta;
 	}
 	
-	public DatosBancarios(int idCliente, int numTarjeta,
+	public DatosBancarios(int numTarjeta,
 			String nombre, String apellidos, int pin, Date fechaCaducidad) {
 		super();
-		this.idCliente = idCliente;
 		this.numTarjeta = numTarjeta;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -54,12 +58,7 @@ public class DatosBancarios {
 	public void setIdDatosBancarios(int idDatosBancarios) {
 		this.idDatosBancarios = idDatosBancarios;
 	}
-	public int getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
+
 	public int getNumTarjeta() {
 		return numTarjeta;
 	}
@@ -100,7 +99,7 @@ public class DatosBancarios {
 	@Override
 	public String toString() {
 		return "DatosBancarios [idDatosBancarios=" + idDatosBancarios
-				+ ", idCliente=" + idCliente + ", numTarjeta=" + numTarjeta
+				+ ", numTarjeta=" + numTarjeta
 				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", pin="
 				+ pin + ", fechaCaducidad=" + fechaCaducidad + "]";
 	}

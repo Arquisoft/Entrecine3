@@ -1,0 +1,26 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="entrecine">
+		<properties>
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+<!--
+			<property name="hibernate.hbm2ddl.auto" value="create"/> 
+ -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://papaalfasierra.org:3306/entrecine3" />
+			<property name="javax.persistence.jdbc.user" value="entrecine3" />
+			<property name="javax.persistence.jdbc.password" value="EntrecinE3" />
+<!-- 
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="use_sql_comments" value="true"/>
+ -->
+		</properties>
+	</persistence-unit>
+
+</persistence>

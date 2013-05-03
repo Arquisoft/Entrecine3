@@ -38,7 +38,7 @@ public class PersistenceTest {
 			conn = Jdbc.getConnection();
 			ClienteGateway cg = new ClienteGatewayImpl();
 			cg.setConnection(conn);
-			cg.save("7777778T", "Jorge", "Cabal", "uo216752@uniovi.es", 13, 02,
+			cg.save("7777777T", "Jorge", "Cabal", "uo216752@uniovi.es", 13, 02,
 					1991);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

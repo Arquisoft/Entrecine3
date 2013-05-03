@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,11 +15,25 @@ import javax.persistence.Table;
 @Table(name="TSalas")
 public class Sala {
 	
-	@Id @GeneratedValue private int idSala;
+	@Id @GeneratedValue @Column(name="idSalas")private int idSala;
 	private int numSala;
 	private int numButacas;
 	private String tipoSala;
 	
+	public Sala(){}
+	
+	public Sala(int numSala){
+		super();
+		this.numSala = numSala;
+	}
+	
+	public Sala(int numSala, int numButacas, String tipoSala) {
+		super();
+		this.numSala = numSala;
+		this.numButacas = numButacas;
+		this.tipoSala = tipoSala;
+	}
+
 	public int getIdSala() {
 		return idSala;
 	}

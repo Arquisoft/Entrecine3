@@ -1,11 +1,14 @@
 package model;
 
-import java.sql.Time;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Clase modelo que representa una película en el dominio
@@ -16,13 +19,30 @@ import javax.persistence.Table;
 @Table(name="TPeliculas")
 public class Pelicula {
 	
-	@Id @GeneratedValue private int idPelicula;
+	@Id @GeneratedValue @Column(name="idPeliculas")private int idPelicula;
 	private String titulo;
-	private Time duracion;
+	@Temporal(TemporalType.TIME)private Date duracion;
 	private String genero;
 	private String descripcion;
-	private String urlImagen;
+	@Column(name="imagen")private String urlImagen;
 	
+	public Pelicula(){}
+	
+	public Pelicula(String titulo) {
+		super();
+		this.titulo = titulo;
+	}
+
+	public Pelicula(String titulo, Date duracion, String genero,
+			String descripcion, String urlImagen) {
+		super();
+		this.titulo = titulo;
+		this.duracion = duracion;
+		this.genero = genero;
+		this.descripcion = descripcion;
+		this.urlImagen = urlImagen;
+	}
+
 	public int getIdPelicula() {
 		return idPelicula;
 	}
@@ -35,10 +55,10 @@ public class Pelicula {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Time getDuracion() {
+	public Date getDuracion() {
 		return duracion;
 	}
-	public void setDuracion(Time duracion) {
+	public void setDuracion(Date duracion) {
 		this.duracion = duracion;
 	}
 	public String getGenero() {
