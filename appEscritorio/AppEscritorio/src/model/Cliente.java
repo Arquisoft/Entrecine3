@@ -1,9 +1,11 @@
 package model;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,11 +32,57 @@ public class Cliente {
 	private String apellidos;
 	private String email;
 	@Temporal(TemporalType.DATE)
-	private Date fechaNacimiento;
+	@Column(name="fecha_nacimiento")private Date fechaNacimiento;
 
 	// Lista para mapeador
 	@OneToMany(mappedBy = "cliente")
 	private Set<DatosBancarios> datosBancarios = new HashSet<DatosBancarios>();
+	
+	public Cliente(){
+		
+	}
+
+	public Cliente(String dni){
+		super();
+		this.dni = dni;
+	}
+	
+	public Cliente(String dni, String nombre, String apellidos, String email,
+			Date fechaNacimiento) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	
+	/**
+	 * Añadir datos bancarios al cliente. Metodo de mantenimiento para el mapeador.
+	 * @param datosBancarios
+	 */
+	public void addDatosBancarios(DatosBancarios datosBancarios){
+		this.datosBancarios.add(datosBancarios);
+		datosBancarios.setCliente(this);
+	}
+	
+	/**
+	 * Eliminar datos bancarios del cliente. Metodo de mantenimiento para el mapeador.
+	 * @param datosBancarios
+	 */
+	public void removeDatosBancarios(DatosBancarios datosBancarios){
+		this.datosBancarios.remove(datosBancarios);
+		datosBancarios.setCliente(null);
+	}
+
+	
+	public Set<DatosBancarios> getDatosBancarios() {
+		return Collections.unmodifiableSet(datosBancarios);
+	}
+	
+	private Set<DatosBancarios> _getDatosBancarios() {
+		return datosBancarios;
+	}
 
 	public int getIdCliente() {
 		return idCliente;

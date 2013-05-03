@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +19,8 @@ public class DatosBancarios {
 	private String apellidos;
 	private int pin;
 	private Date fechaCaducidad;
+	
+	@ManyToOne private Cliente cliente;
 	
 	/**
 	 * Constructor por omisión
@@ -34,6 +37,17 @@ public class DatosBancarios {
 		this.idCliente = idCliente;
 	}
 	
+	public DatosBancarios(int idCliente, int numTarjeta,
+			String nombre, String apellidos, int pin, Date fechaCaducidad) {
+		super();
+		this.idCliente = idCliente;
+		this.numTarjeta = numTarjeta;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.pin = pin;
+		this.fechaCaducidad = fechaCaducidad;
+	}
+
 	public int getIdDatosBancarios() {
 		return idDatosBancarios;
 	}
@@ -75,6 +89,12 @@ public class DatosBancarios {
 	}
 	public void setFechaCaducidad(Date fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	@Override
