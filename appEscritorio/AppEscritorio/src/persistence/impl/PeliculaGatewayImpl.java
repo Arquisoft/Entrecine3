@@ -4,23 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-import persistence.PeliculaGateway;
-
 import model.Pelicula;
+import persistence.PeliculaGateway;
 import util.Jdbc;
 import conf.Conf;
 
-public class PeliculaGatewayImpl implements PeliculaGateway{
-	
+public class PeliculaGatewayImpl implements PeliculaGateway {
+
 	private Connection connection;
 
 	@Override
 	public void setConnection(Connection connection) {
-		this.connection = connection;	
+		this.connection = connection;
 	}
 
 	@SuppressWarnings("finally")
@@ -63,8 +61,7 @@ public class PeliculaGatewayImpl implements PeliculaGateway{
 		Pelicula pelicula = new Pelicula();
 
 		try {
-			pst = connection.prepareStatement(Conf
-					.get("SQL_FIND_MOVIE_BY_ID"));
+			pst = connection.prepareStatement(Conf.get("SQL_FIND_MOVIE_BY_ID"));
 
 			pst.setInt(1, id);
 			rs = pst.executeQuery();
@@ -93,9 +90,8 @@ public class PeliculaGatewayImpl implements PeliculaGateway{
 			String descripcion, String imagen) throws SQLException {
 		PreparedStatement pst = null;
 
-		
 		pst = connection.prepareStatement(Conf.get("SQL_ADD_MOVIE"));
-		
+
 		pst.setString(1, titulo);
 		pst.setString(2, duracion);
 		pst.setString(3, genero);
@@ -106,18 +102,31 @@ public class PeliculaGatewayImpl implements PeliculaGateway{
 	}
 
 	@Override
-	public void delete(String titulo) {
+	public void delete(String titulo) throws SQLException {
 		PreparedStatement pst = null;
-		
-		try {
-			pst = connection.prepareStatement(Conf.get("SQL_DELETE_MOVIE"));
-			pst.setString(1, titulo);
-			
-			pst.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error en PeliculaGatewayImpl a la hora de borrar, método delete.");
-		}
+		pst = connection.prepareStatement(Conf.get("SQL_DELETE_MOVIE"));
+		pst.setString(1, titulo);
+
+		pst.executeUpdate();
+	}
+
+	@Override
+	public void update(int idPelicula, String titulo, String duracion,
+			String genero, String descripcion, String imagen)
+			throws SQLException {
+
+		PreparedStatement pst = null;
+
+		pst = connection.prepareStatement(Conf.get("SQL_UPDATE_PELICULA"));
+		pst.setString(1, titulo);
+		pst.setString(2, duracion);
+		pst.setString(3, genero);
+		pst.setString(4, descripcion);
+		pst.setString(5, imagen);
+		pst.setInt(6, idPelicula);
+
+		pst.executeUpdate();
+
 	}
 
 }

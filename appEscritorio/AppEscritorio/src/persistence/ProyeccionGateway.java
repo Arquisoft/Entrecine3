@@ -19,6 +19,12 @@ public interface ProyeccionGateway {
 			int minuto_proyeccion, int segundo_proyeccion, int tipoProyeccion)
 			throws SQLException;
 
-	public void delete(int idPelicula, int idSala, int tipoProyeccion) throws SQLException;
+	public void update(int idProyeccion, int idPelicula, int idSala,
+			int dia_proyeccion, int mes_proyeccion, int anio_proyeccion,
+			int hora_proyeccion, int minuto_proyeccion, int segundo_proyeccion,
+			int tipoProyeccion) throws SQLException;
+
+	public void delete(int idPelicula, int idSala, int tipoProyeccion)
+			throws SQLException;
 
 }

@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import model.DatosBancarios;
@@ -113,20 +111,13 @@ public class DatosBancariosGatewayImpl implements DatosBancariosGateway {
 	}
 
 	@Override
-	public void delete(int numTarjeta) {
+	public void delete(int numTarjeta) throws SQLException {
 		PreparedStatement pst = null;
+		pst = connection.prepareStatement(Conf
+				.get("SQL_DELETE_DATOS_BANCARIOS"));
+		pst.setInt(1, numTarjeta);
 
-		try {
-			pst = connection.prepareStatement(Conf
-					.get("SQL_DELETE_DATOS_BANCARIOS"));
-			pst.setInt(1, numTarjeta);
-
-			pst.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out
-					.println("Error en DatosBancariosGatewayImpl a la hora de borrar, método delete.");
-		}
+		pst.executeUpdate();
 
 	}
 
@@ -167,25 +158,20 @@ public class DatosBancariosGatewayImpl implements DatosBancariosGateway {
 	@Override
 	public void update(int idDatosBancarios, int idCliente, int numTarjeta,
 			String nombre, String apellidos, int pin, int mes_caducidad,
-			int anio_caducidad) {
+			int anio_caducidad) throws SQLException {
 		PreparedStatement pst = null;
 
-		try {
-			pst = connection.prepareStatement(Conf.get("SQL_UPDATE_DATOS_BANCARIOS"));
-			pst.setInt(1, idCliente);
-			pst.setInt(2, numTarjeta);
-			pst.setString(3, nombre);
-			pst.setString(4, apellidos);
-			pst.setInt(5, pin);
-			pst.setString(6,
-					String.valueOf(anio_caducidad + "-" + mes_caducidad + "-1"));
-			pst.setInt(7, idDatosBancarios);
-			pst.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out
-					.println("Error en DatosBancariosGatewayImpl a la hora de UPDATE");
-		}
+		pst = connection.prepareStatement(Conf
+				.get("SQL_UPDATE_DATOS_BANCARIOS"));
+		pst.setInt(1, idCliente);
+		pst.setInt(2, numTarjeta);
+		pst.setString(3, nombre);
+		pst.setString(4, apellidos);
+		pst.setInt(5, pin);
+		pst.setString(6,
+				String.valueOf(anio_caducidad + "-" + mes_caducidad + "-1"));
+		pst.setInt(7, idDatosBancarios);
+		pst.executeUpdate();
 
 	}
 

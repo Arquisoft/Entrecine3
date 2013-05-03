@@ -107,4 +107,19 @@ public class TipoProyeccionGatewayImpl implements TipoProyeccionGateway {
 
 	}
 
+	@Override
+	public void update(int idTipoProyeccion, String nombre, double precio)
+			throws SQLException {
+		PreparedStatement pst = null;
+
+		pst = connection.prepareStatement(Conf
+				.get("SQL_UPDATE_TIPO_PROYECCION"));
+		pst.setString(1, nombre);
+		pst.setDouble(2, precio);
+		pst.setInt(3, idTipoProyeccion);
+
+		pst.executeUpdate();
+
+	}
+
 }
