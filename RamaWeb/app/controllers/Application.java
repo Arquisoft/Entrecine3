@@ -19,7 +19,7 @@ public class Application extends Controller {
     }
     
     public static Result nuevaPelicula(){
-    	Form<Pelicula> filledForm = formularioPelicula.bindFromRequest();
+    	/*Form<Pelicula> filledForm = formularioPelicula.bindFromRequest();
     	  if(filledForm.hasErrors()) {
     	    return ok(filledForm.errorsAsJson().toString());
     		  //return badRequest(views.html.index.render(Pelicula.all(), filledForm));
@@ -27,7 +27,8 @@ public class Application extends Controller {
     		  Pelicula.crearPelicula(filledForm.get());
     	    return redirect(routes.Application.peliculas());  
     	  }
-    	  
+    	  */
+    	return ok("En la aplicacion web no se hacen tareas de administracion");
     }
     
     public static Result borrar(Long id){
