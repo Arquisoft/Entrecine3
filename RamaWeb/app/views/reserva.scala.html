@@ -1,0 +1,47 @@
+@(pelicula: Pelicula, usuario: Usuario)
+
+@import helper._
+
+<!-- El argumento del main es lo que sale en la pestaña del navegador -->
+
+@main("Reserva") {
+    
+    <h1> CINES ENTRECINE-3 </h1>
+    
+    <h2> Realice su reserva </h2>
+    
+    <table border = "1">
+    
+    	<tr>
+    		<td></td>
+    		<td>11.00 - 13.00</td>
+    		<td>15.00 - 18.00</td>
+    		<td>20.00 - 23.00</td>
+    	</tr>
+    
+    @for(pelicula <- peliculas){
+    	<tr>
+    		<td>@pelicula.titulo<td>
+    		<td></td>
+    		<td></td>
+    	<tr>
+    }
+
+
+	</table>
+    
+    <h2>Loggearse</h2>
+    <!-- falta hacer el metodo en Application -->
+    @form(routes.Application.loggearse()){
+    	@inputText(formularioLoggearse("Usuario"))
+    	@inputText(formularioLoggearse("Password"))
+    	<input type="submit" value="Loggin">
+    }
+    
+   
+    @form(routes.Application.nuevaPelicula()){
+    	@inputText(formularioPeli("Titulo"))
+    	<input type="submit" value="create">
+    }
+    
+}
