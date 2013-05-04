@@ -1,3 +1,4 @@
+
 body {
 	background: #BDBDBD;
 	font-family: Segoe UI, Arial, Verdana, Tahoma, sans-serif;
@@ -8,6 +9,13 @@ table {
 }
 
 h1 {
-	border = 2px, black, solid;
-	color = red;
+	text-align: center;
+	color: #F7FE2E;
+	font-size: 50px;
+	background-color: #5882FA;
+}
+
+h2 {
+	background-color: #5882FA;
+	font-size: 25px;
 }
