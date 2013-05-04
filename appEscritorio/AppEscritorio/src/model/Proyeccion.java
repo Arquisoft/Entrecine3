@@ -1,11 +1,16 @@
 package model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Clase del modelo que representa una proyección en el dominio
@@ -16,15 +21,15 @@ import javax.persistence.Table;
 @Table(name="TProyecciones")
 public class Proyeccion {
 	
-	@Id @GeneratedValue private int idProyeccion;
-	private int idPelicula;
-	private int idSala;
-	private int tipoProyeccion;
-	private Timestamp fechaProyeccion;
+	@Id @GeneratedValue @Column(name="idProyecciones")private int idProyeccion;
+	//@Column(name="idPeliculas")private int idPelicula;
+	//@Column(name="idSalas")private int idSala;
+	//@Column(name="idTipoProyeccion")private int idTipoProyeccion;
+	@Temporal(TemporalType.TIMESTAMP)private Date fechaProyeccion;
 	
-	private Pelicula pelicula;
-	private Sala sala;
-	private TipoProyeccion tipoProyeccion;
+	@ManyToOne @JoinColumn(name="idPeliculas") private Pelicula pelicula;
+	@ManyToOne @JoinColumn(name="idSalas") private Sala sala;
+	@ManyToOne @JoinColumn(name="idTipoProyeccion") private TipoProyeccion tipoProyeccion;
 	
 	/**
 	 * Constructor por omisión
@@ -33,16 +38,8 @@ public class Proyeccion {
 		
 	}
 	
-	/**
-	 * Constructor parametrizado con los índices
-	 * @param idPelicula
-	 * @param idSala
-	 * @param tipoProyeccion
-	 */
-	public Proyeccion(int idPelicula, int idSala, int tipoProyeccion){
-		this.idPelicula = idPelicula;
-		this.idSala = idSala;
-		this.tipoProyeccion = tipoProyeccion;
+	public Proyeccion(Date fechaProyeccion){
+		this.fechaProyeccion = fechaProyeccion;
 	}
 	
 	public int getIdProyeccion() {
@@ -51,7 +48,8 @@ public class Proyeccion {
 	public void setIdProyeccion(int idProyeccion) {
 		this.idProyeccion = idProyeccion;
 	}
-	public int getIdPelicula() {
+	
+	/*public int getIdPelicula() {
 		return idPelicula;
 	}
 	public void setIdPelicula(int idPelicula) {
@@ -64,23 +62,57 @@ public class Proyeccion {
 		this.idSala = idSala;
 	}
 	public int getTipoProyeccion() {
-		return tipoProyeccion;
+		return idTipoProyeccion;
 	}
 	public void setTipoProyeccion(int tipoProyeccion) {
-		this.tipoProyeccion = tipoProyeccion;
-	}
-	public Timestamp getFechaProyeccion() {
+		this.idTipoProyeccion = tipoProyeccion;
+	}*/
+	public Date getFechaProyeccion() {
 		return fechaProyeccion;
 	}
-	public void setFechaProyeccion(Timestamp fechaProyeccion) {
+	public void setFechaProyeccion(Date fechaProyeccion) {
 		this.fechaProyeccion = fechaProyeccion;
 	}
 
+	public Pelicula getPelicula() {
+		return pelicula;
+	}
+
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula = pelicula;
+	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
+	public TipoProyeccion getTipoProyeccion() {
+		return tipoProyeccion;
+	}
+
+	public void setTipoProyeccion(TipoProyeccion tipoProyeccion) {
+		this.tipoProyeccion = tipoProyeccion;
+	}
+	
+	
+
 	@Override
+	public String toString() {
+		return "Proyeccion [idProyeccion=" + idProyeccion
+				+ ", fechaProyeccion=" + fechaProyeccion + ", pelicula="
+				+ pelicula + ", sala=" + sala + ", tipoProyeccion="
+				+ tipoProyeccion + "]";
+	}
+
+	/*@Override
 	public String toString() {
 		return "Proyeccion [idProyeccion=" + idProyeccion + ", idPelicula="
 				+ idPelicula + ", idSala=" + idSala + ", tipoProyeccion="
-				+ tipoProyeccion + ", fechaProyeccion=" + fechaProyeccion + "]";
-	}
+				+ idTipoProyeccion + ", fechaProyeccion=" + fechaProyeccion + "]";
+	}*/
 	
 }

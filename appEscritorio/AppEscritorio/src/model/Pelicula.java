@@ -1,11 +1,14 @@
 package model;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +29,8 @@ public class Pelicula {
 	private String descripcion;
 	@Column(name="imagen")private String urlImagen;
 	
+	@OneToMany(mappedBy="pelicula") private Set<Proyeccion> proyeccion;
+	
 	public Pelicula(){}
 	
 	public Pelicula(String titulo) {
@@ -41,6 +46,16 @@ public class Pelicula {
 		this.genero = genero;
 		this.descripcion = descripcion;
 		this.urlImagen = urlImagen;
+	}
+	
+	public void addProyeccion(Proyeccion proyeccion){
+		this.proyeccion.add(proyeccion);
+		proyeccion.setPelicula(this);
+	}
+	
+	public void removeProyeccion(Proyeccion proyeccion){
+		this.proyeccion.remove(proyeccion);
+		proyeccion.setPelicula(null);
 	}
 
 	public int getIdPelicula() {
@@ -79,6 +94,15 @@ public class Pelicula {
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
+	
+	public Set<Proyeccion> getProyeccion() {
+		return Collections.unmodifiableSet(proyeccion);
+	}
+	
+	Set<Proyeccion> _getProyeccion(){
+		return proyeccion;
+	}
+
 	@Override
 	public String toString() {
 		return "Pelicula [idPelicula=" + idPelicula + ", titulo=" + titulo

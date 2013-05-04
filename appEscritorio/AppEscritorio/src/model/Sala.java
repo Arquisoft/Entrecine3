@@ -1,9 +1,13 @@
 package model;
 
+import java.util.Collections;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +24,8 @@ public class Sala {
 	private int numButacas;
 	private String tipoSala;
 	
+	@OneToMany(mappedBy="sala") private Set<Proyeccion> proyeccion;
+	
 	public Sala(){}
 	
 	public Sala(int numSala){
@@ -32,6 +38,16 @@ public class Sala {
 		this.numSala = numSala;
 		this.numButacas = numButacas;
 		this.tipoSala = tipoSala;
+	}
+	
+	public void addProyeccion(Proyeccion proyeccion){
+		this.proyeccion.add(proyeccion);
+		proyeccion.setSala(this);
+	}
+	
+	public void removeProyeccion(Proyeccion proyeccion){
+		this.proyeccion.remove(proyeccion);
+		proyeccion.setSala(null);
 	}
 
 	public int getIdSala() {
@@ -58,6 +74,14 @@ public class Sala {
 	public void setTipoSala(String tipoSala) {
 		this.tipoSala = tipoSala;
 	}
+	public Set<Proyeccion> getProyeccion() {
+		return Collections.unmodifiableSet(proyeccion);
+	}
+	
+	Set<Proyeccion> _getProyeccion(){
+		return proyeccion;
+	}
+
 	@Override
 	public String toString() {
 		return "Sala [idSala=" + idSala + ", numSala=" + numSala

@@ -5,5 +5,57 @@
   	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
   	version="2.0">
   	
+	<!-- Cliente Queries -->
+	<named-query name="Cliente.findById">
+		<query>select c from Cliente c where c.idCliente = ?1</query>
+	</named-query>
+	
+	<named-query name="Cliente.findByDNI">
+		<query>select c from Cliente c where c.dni = ?1</query>
+	</named-query>
+	
+	<named-query name="Cliente.findAll">
+		<query>select c from Cliente c</query>
+	</named-query>
+	
+	<!-- DatosBancarios Queries -->
+  	<named-query name="DatosBancarios.findById">
+  		<query>select db from DatosBancarios db where db.idDatosBancarios = ?1</query>
+  	</named-query>
+  	
+  	<named-query name="DatosBancarios.findByNumTarjeta">
+  		<query>select db from DatosBancarios db where db.numTarjeta = ?1</query>
+  	</named-query>
+  	
+  	<named-query name="DatosBancarios.findAll">
+  		<query>select db from DatosBancarios db</query>
+  	</named-query>
+  	
+  	<!-- Peliculas Queries -->
+  	<named-query name="Peliculas.findById">
+  		<query>select p from Pelicula p where p.idPelicula = ?1</query>
+  	</named-query>
+  	
+  	<named-query name="Peliculas.findAll">
+  		<query>select p from Pelicula p</query>
+  	</named-query>
+  	
+  	<!-- Sala queries -->
+  	<named-query name="Sala.findById">
+  		<query>select s from Sala s where s.idSala = ?1</query>
+  	</named-query>
+  	
+  	<named-query name="Sala.findAll">
+  		<query>select s from Sala s</query>
+  	</named-query>
+  	
+  	<!-- TipoProyeccion queries -->
+  	<named-query name="TipoProyeccion.findById">
+  		<query>select tp from TipoProyeccion tp where tp.idTipoProyeccion = ?1</query>
+  	</named-query>
+  	
+  	<named-query name="TipoProyeccion.findByName">
+  		<query>select tp from TipoProyeccion tp where tp.nombre = ?1</query>
+  	</named-query>
 
 </entity-mappings>

@@ -1,9 +1,13 @@
 package model;
 
+import java.util.Collections;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,9 +19,11 @@ import javax.persistence.Table;
 @Table(name="TTipo_Proyeccion")
 public class TipoProyeccion {
 	
-	@Id @GeneratedValue @Column(name="idTipo")private int idTipoProyeccion;
+	@Id @GeneratedValue @Column(name="idTipoProyeccion")private int idTipoProyeccion;
 	private String nombre;
 	private double precio;
+	
+	@OneToMany(mappedBy="tipoProyeccion") private Set<Proyeccion> proyeccion;
 	
 	public TipoProyeccion(){ }
 	
@@ -30,6 +36,16 @@ public class TipoProyeccion {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
+	}
+	
+	public void addProyeccion(Proyeccion proyeccion){
+		this.proyeccion.add(proyeccion);
+		proyeccion.setTipoProyeccion(this);
+	}
+	
+	public void removeProyeccion(Proyeccion proyeccion){
+		this.proyeccion.remove(proyeccion);
+		proyeccion.setTipoProyeccion(null);
 	}
 	
 	public int getIdTipoProyeccion() {
@@ -50,6 +66,15 @@ public class TipoProyeccion {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+	
+	public Set<Proyeccion> getProyeccion() {
+		return Collections.unmodifiableSet(proyeccion);
+	}
+	
+	Set<Proyeccion> _getProyeccion(){
+		return proyeccion;
+	}
+
 	@Override
 	public String toString() {
 		return "TipoProyeccion [idTipoProyeccion=" + idTipoProyeccion
