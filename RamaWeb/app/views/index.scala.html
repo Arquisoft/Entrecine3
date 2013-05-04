@@ -35,6 +35,12 @@
 	</table>
     
     <h2>Loggearse</h2>
+    <!-- falta hacer el metodo en Application -->
+    @form(routes.Application.loggearse()){
+    	@inputText(formularioLoggearse("Usuario"))
+    	@inputText(formularioLoggearse("Password"))
+    	<input type="submit" value="Loggin">
+    }
     
    
     @form(routes.Application.nuevaPelicula()){
