@@ -15,7 +15,7 @@ public class Application extends Controller {
     }
     
     public static Result peliculas(){
-    	return ok(views.html.index.render(Pelicula.all(), formularioPelicula));
+    	return ok(views.html.index.render(Pelicula.all(), formularioPelicula, "4/5/2013"));
     }
     
     public static Result nuevaPelicula(){

@@ -17,7 +17,20 @@ public class Pelicula extends Model {
 	
 	public static List<Pelicula> all(){
 		//return find.all();
-		return new ArrayList<Pelicula>();
+		ArrayList<Pelicula> pelis = new ArrayList<Pelicula>();
+		pelis.add(new Pelicula("Peli1", "Hola"));
+		pelis.add(new Pelicula("Peli3", "Hola3"));
+		pelis.add(new Pelicula("Peli4", "Hola4"));
+		return pelis;
+	}
+	
+	public Pelicula() {
+		
+	}
+	
+	public Pelicula(String titulo, String descripcion) {
+		this.titulo = titulo;
+		this.descripcion = descripcion;
 	}
 //	
 //	public static void crearPelicula(Pelicula pelicula){

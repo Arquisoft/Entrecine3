@@ -1,9 +1,13 @@
-.pelicula {
-border: 5px solid #000;
-margin: 10px;
-width: 700px;
+body {
+	background: #BDBDBD;
+	font-family: Segoe UI, Arial, Verdana, Tahoma, sans-serif;
 }
 
-.pelicula h3 {
-text-align:center;
+table {
+	border-collapse: collapse;
+}
+
+h1 {
+	border = 2px, black, solid;
+	color = red;
 }
