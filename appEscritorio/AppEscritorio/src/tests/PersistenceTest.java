@@ -7,25 +7,31 @@ import java.util.List;
 
 import model.Cliente;
 import model.DatosBancarios;
+import model.DetallesVenta;
 import model.Pelicula;
 import model.Proyeccion;
 import model.Sala;
 import model.TipoProyeccion;
+import model.Venta;
 
 import org.junit.Test;
 
 import persistence.ClienteGateway;
 import persistence.DatosBancariosGateway;
+import persistence.DetallesVentaGateway;
 import persistence.PeliculaGateway;
 import persistence.ProyeccionGateway;
 import persistence.SalaGateway;
 import persistence.TipoProyeccionGateway;
+import persistence.VentaGateway;
 import persistence.impl.ClienteGatewayImpl;
 import persistence.impl.DatosBancariosGatewayImpl;
+import persistence.impl.DetallesVentaGatewayImpl;
 import persistence.impl.PeliculaGatewayImpl;
 import persistence.impl.ProyeccionGatewayImpl;
 import persistence.impl.SalaGatewayImpl;
 import persistence.impl.TipoProyeccionGatewayImpl;
+import persistence.impl.VentaGatewayImpl;
 import util.Jdbc;
 
 public class PersistenceTest {
@@ -483,7 +489,7 @@ public class PersistenceTest {
 			conn = Jdbc.getConnection();
 			ProyeccionGateway pg = new ProyeccionGatewayImpl();
 			pg.setConnection(conn);
-			pg.update(1, 1, 1, 10, 10, 1111, 16, 0, 0, 1);
+			pg.update(1, 1, 1, 10, 10, 2013, 16, 0, 0, 1);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -505,6 +511,111 @@ public class PersistenceTest {
 			lista = pg.findAll();
 			for (Proyeccion p : lista)
 				System.out.println(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void addVenta(){
+		Connection conn;
+
+		try {
+			conn = Jdbc.getConnection();
+			VentaGateway vg = new VentaGatewayImpl();
+			vg.setConnection(conn);
+			vg.save(1, 7.5, "2013-05-05");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void removeVenta(){
+		Connection conn;
+
+		try {
+			conn = Jdbc.getConnection();
+			VentaGateway vg = new VentaGatewayImpl();
+			vg.setConnection(conn);
+			vg.save(1,200.3,"2013-06-06 16:55:55");
+			printVentas();
+			vg.delete(1); //Cambiar por ser ids autoincrementables
+			System.out.println("------------------");
+			printVentas();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void printVentas(){
+		Connection conn;
+
+		try {
+			conn = Jdbc.getConnection();
+			VentaGateway vg = new VentaGatewayImpl();
+			vg.setConnection(conn);
+			List<Venta> lista = new ArrayList<Venta>();
+			lista = vg.findAll();
+			for (Venta v : lista)
+				System.out.println(v);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void addDetallesVenta(){
+		Connection conn;
+
+		try {
+			conn = Jdbc.getConnection();
+			DetallesVentaGateway dvg = new DetallesVentaGatewayImpl();
+			dvg.setConnection(conn);
+			dvg.save(1, 1, 20, 3.5);
+			dvg.save(1, 1, 2, 3.5);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void removeDetallesVenta(){
+		Connection conn;
+
+		try {
+			conn = Jdbc.getConnection();
+			DetallesVentaGateway dvg = new DetallesVentaGatewayImpl();
+			dvg.setConnection(conn);
+			dvg.save(1, 2, 20, 2.5);
+			printDetallesVentas();
+			dvg.deleteByIdVenta(1);
+			System.out.println("------------------");
+			printDetallesVentas();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void printDetallesVentas(){
+		Connection conn;
+
+		try {
+			conn = Jdbc.getConnection();
+			DetallesVentaGateway dvg = new DetallesVentaGatewayImpl();
+			dvg.setConnection(conn);
+			List<DetallesVenta> lista = new ArrayList<DetallesVenta>();
+			lista = dvg.listAll();
+			for (DetallesVenta dv : lista)
+				System.out.println(dv);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -12,7 +12,9 @@ public class DetallesVenta {
 	private int idVenta;
 	private int idProyeccion;
 	private int butaca;
-	private float precio;
+	private double precio;
+	
+	public DetallesVenta(){}
 	
 	/**
 	 * Constructor parametrizado con los índices necesarios
@@ -49,10 +51,17 @@ public class DetallesVenta {
 	public void setButaca(int butaca) {
 		this.butaca = butaca;
 	}
-	public float getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "DetallesVenta [idDetallesVenta=" + idDetallesVenta
+				+ ", idVenta=" + idVenta + ", idProyeccion=" + idProyeccion
+				+ ", butaca=" + butaca + ", precio=" + precio + "]";
 	}
 }
