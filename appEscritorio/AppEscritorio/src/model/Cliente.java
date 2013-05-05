@@ -80,6 +80,7 @@ public class Cliente {
 		return Collections.unmodifiableSet(datosBancarios);
 	}
 	
+	@SuppressWarnings("unused")
 	private Set<DatosBancarios> _getDatosBancarios() {
 		return datosBancarios;
 	}
