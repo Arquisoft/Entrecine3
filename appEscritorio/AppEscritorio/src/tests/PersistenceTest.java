@@ -31,6 +31,9 @@ import util.Jdbc;
 public class PersistenceTest {
 
 	@Test
+	/**
+	 * Añadir un cliente a la base de datos
+	 */
 	public void addClient() {
 		Connection conn;
 
@@ -47,6 +50,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Imprimir lista de clientes
+	 */
 	public void printClients() {
 		Connection conn;
 
@@ -65,6 +71,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Eliminar cliente de la base de datos
+	 */
 	public void removeClient() {
 
 		Connection conn;
@@ -83,6 +92,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Actualizar cliente de la base de datos
+	 */
 	public void updateCliente() {
 		Connection conn;
 
@@ -99,6 +111,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Añadir datos bancarios a la base de datos
+	 */
 	public void addDatosBancarios() {
 		Connection connection;
 
@@ -114,6 +129,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Listar datos bancarios
+	 */
 	public void printDatosBancarios() {
 		Connection conn;
 
@@ -132,6 +150,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Borrar datos bancarios de la bbdd
+	 */
 	public void deleteDatosBancarios() {
 		Connection conn;
 
@@ -151,6 +172,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Actualizar datos bancarios de la bbdd
+	 */
 	public void updateDatosBancarios() {
 		Connection conn;
 
@@ -166,6 +190,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Añadir peliculas a la bbdd
+	 */
 	public void addPeliculas() {
 		Connection conn;
 
@@ -183,6 +210,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Eliminar peliculas de la bbdd
+	 */
 	public void removePeliculas() {
 		Connection conn;
 
@@ -203,6 +233,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Listar peliculas
+	 */
 	public void printPeliculas() {
 		Connection conn;
 
@@ -221,6 +254,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Actualizar peliculas en la bbdd
+	 */
 	public void updatePelicula() {
 		Connection conn;
 
@@ -238,6 +274,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Añadir tipo de proyeccion a la bbdd
+	 */
 	public void addTipoProyeccion() {
 		Connection conn;
 
@@ -254,6 +293,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Eliminar tipo de proyeccion de la bbdd
+	 */
 	public void removeTipoProyeccion() {
 		Connection conn;
 
@@ -273,6 +315,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Listar tipos de proyeccion
+	 */
 	public void printTipoProyeccion() {
 		Connection conn;
 
@@ -291,6 +336,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Actualizar tipo de proyeccion de la bbdd
+	 */
 	public void updateTipoProyeccion() {
 		Connection conn;
 
@@ -306,6 +354,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Añadir sala a la bbdd
+	 */
 	public void addSala() {
 		Connection conn;
 
@@ -321,6 +372,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Eliminar sala de la bbdd
+	 */
 	public void removeSala() {
 		Connection conn;
 
@@ -340,6 +394,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Actualizar sala de la bbdd
+	 */
 	public void updateSala() {
 		Connection conn;
 
@@ -355,6 +412,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Imprimir salas
+	 */
 	public void printSala() {
 		Connection conn;
 
@@ -373,6 +433,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Añadir proyeccion a la bbdd
+	 */
 	public void addProyeccion() {
 		Connection conn;
 
@@ -388,6 +451,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Eliminar proyeccion de la bbdd
+	 */
 	public void removeProyeccion() {
 		Connection conn;
 
@@ -407,6 +473,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Actualizar proyeccion de la bbdd
+	 */
 	public void updateProyeccion() {
 		Connection conn;
 
@@ -422,6 +491,9 @@ public class PersistenceTest {
 	}
 
 	@Test
+	/**
+	 * Imprimir proyecciones
+	 */
 	public void printProyeccion() {
 		Connection conn;
 

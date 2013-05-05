@@ -2,6 +2,12 @@ package model;
 
 import java.util.Date;
 
+/**
+ * Clase de modelo que representa los datos bancarios de un cliente en el dominio
+ * 
+ * @author Project Team Entrecine3
+ * 
+ */
 public class DatosBancarios {
 	
 	private int idDatosBancarios;
