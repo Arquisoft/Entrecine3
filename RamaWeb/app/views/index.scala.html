@@ -1,46 +1,22 @@
-@(peliculas: List[Pelicula], formularioPeli: Form[Pelicula], fecha: String)
-
-<!-- Las fechas y horarios y salas se sacarian de la tabla proyecciones -->
+@(peliculas: List[Pelicula], formularioPeli: Form[Pelicula])
 
 @import helper._
 
 <!-- El argumento del main es lo que sale en la pestaña del navegador -->
 
-@main("Entrecine3") {
+@main("Cartelera") {
     
-    <h1> CINES ENTRECINE-3 </h1>
-    
-    <h2> Cartelera para el @fecha </h2>
-    
-    <!-- esta tabla se hace realmente con el objeto de proyeccion, del que se saca todo -->
-    
-    <table border = "1">
-    
-    	<tr>
-    		<td></td>
-    		<td>11.00 - 13.00</td>
-    		<td>15.00 - 18.00</td>
-    		<td>20.00 - 23.00</td>
-    	</tr>
+    <h1> Cines Entrecine3 </h1>
     
     @for(pelicula <- peliculas){
-    	<tr>
-    		<td>@pelicula.titulo<td>
-    		<td></td>
-    		<td></td>
-    	<tr>
+		<div class="pelicula">
+    		<h3>@pelicula.getTitulo()</h3>
+    		<p>@pelicula.getDescripcion()</p>
+		</div>
     }
 
-
-	</table>
     
-    <h2>Loggearse</h2>
-    <!-- falta hacer el metodo en Application -->
-    @form(routes.Application.loggearse()){
-    	@inputText(formularioLoggearse("Usuario"))
-    	@inputText(formularioLoggearse("Password"))
-    	<input type="submit" value="Loggin">
-    }
+    <h2>Añadir nueva película</h2>
     
    
     @form(routes.Application.nuevaPelicula()){

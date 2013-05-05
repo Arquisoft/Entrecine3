@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.ArrayList;
+
 import models.Pelicula;
 import play.data.Form;
 import play.mvc.Controller;
@@ -15,7 +17,7 @@ public class Application extends Controller {
     }
     
     public static Result peliculas(){
-    	return ok(views.html.index.render(Pelicula.all(), formularioPelicula, "4/5/2013"));
+    	return ok(views.html.index.render(new ArrayList<Pelicula>(), formularioPelicula));
     }
     
     public static Result nuevaPelicula(){
