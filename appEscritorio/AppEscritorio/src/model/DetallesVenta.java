@@ -1,20 +1,14 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Clase del modelo que representa los detalles de la venta del dominio
  * @author Project Team Entrecine3
  *
  */
-@Entity
-@Table(name="TDetalles_Ventas")
 public class DetallesVenta {
 	
-	@Id @GeneratedValue private int idDetallesVenta;
+	private int idDetallesVenta;
 	private int idVenta;
 	private int idProyeccion;
 	private int butaca;

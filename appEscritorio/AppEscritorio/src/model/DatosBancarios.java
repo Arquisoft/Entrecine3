@@ -2,25 +2,15 @@ package model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="TDatos_bancarios")
 public class DatosBancarios {
 	
-	@Id @GeneratedValue private int idDatosBancarios;
+	private int idDatosBancarios;
 	private int idCliente;
 	private int numTarjeta;
 	private String nombre;
 	private String apellidos;
 	private int pin;
 	private Date fechaCaducidad;
-	
-	@ManyToOne private Cliente cliente;
 	
 	/**
 	 * Constructor por omisión
@@ -89,12 +79,6 @@ public class DatosBancarios {
 	}
 	public void setFechaCaducidad(Date fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
-	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	@Override

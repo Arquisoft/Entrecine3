@@ -2,21 +2,14 @@ package model;
 
 import java.sql.Time;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * Clase modelo que representa una película en el dominio
  * @author Project Team Entrecine3
  *
  */
-@Entity
-@Table(name="TPeliculas")
 public class Pelicula {
 	
-	@Id @GeneratedValue private int idPelicula;
+	private int idPelicula;
 	private String titulo;
 	private Time duracion;
 	private String genero;

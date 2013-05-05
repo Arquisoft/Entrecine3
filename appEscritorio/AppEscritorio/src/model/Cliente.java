@@ -1,18 +1,6 @@
 package model;
 
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * Clase de modelo que representa un cliente en el dominio
@@ -20,23 +8,14 @@ import javax.persistence.TemporalType;
  * @author Project Team Entrecine3
  * 
  */
-@Entity
-@Table(name = "TClientes")
 public class Cliente {
 
-	@Id
-	@GeneratedValue
 	private int idCliente;
 	private String dni;
 	private String nombre;
 	private String apellidos;
 	private String email;
-	@Temporal(TemporalType.DATE)
-	@Column(name="fecha_nacimiento")private Date fechaNacimiento;
-
-	// Lista para mapeador
-	@OneToMany(mappedBy = "cliente")
-	private Set<DatosBancarios> datosBancarios = new HashSet<DatosBancarios>();
+	private Date fechaNacimiento;
 	
 	public Cliente(){
 		
@@ -55,33 +34,6 @@ public class Cliente {
 		this.apellidos = apellidos;
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
-	}
-	
-	/**
-	 * Añadir datos bancarios al cliente. Metodo de mantenimiento para el mapeador.
-	 * @param datosBancarios
-	 */
-	public void addDatosBancarios(DatosBancarios datosBancarios){
-		this.datosBancarios.add(datosBancarios);
-		datosBancarios.setCliente(this);
-	}
-	
-	/**
-	 * Eliminar datos bancarios del cliente. Metodo de mantenimiento para el mapeador.
-	 * @param datosBancarios
-	 */
-	public void removeDatosBancarios(DatosBancarios datosBancarios){
-		this.datosBancarios.remove(datosBancarios);
-		datosBancarios.setCliente(null);
-	}
-
-	
-	public Set<DatosBancarios> getDatosBancarios() {
-		return Collections.unmodifiableSet(datosBancarios);
-	}
-	
-	private Set<DatosBancarios> _getDatosBancarios() {
-		return datosBancarios;
 	}
 
 	public int getIdCliente() {

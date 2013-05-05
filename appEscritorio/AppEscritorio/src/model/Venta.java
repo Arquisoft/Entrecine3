@@ -2,21 +2,14 @@ package model;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * Clase del modelo que representa una venta des dominio
  * @author Project Team Entrecine3
  *
  */
-@Entity
-@Table(name="TVentas")
 public class Venta {
 	
-	@Id @GeneratedValue private int idVenta;
+	private int idVenta;
 	private int idCliente;
 	private float precioTotal;
 	private Timestamp fechaVenta;
