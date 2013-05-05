@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.ArrayList;
-
 import models.Pelicula;
 import play.data.Form;
 import play.mvc.Controller;
@@ -10,14 +8,16 @@ import play.mvc.Result;
 
 public class Application extends Controller {
   
-    public static Result index() {
-        //return ok(index.render("Hola mundo!")); //utiliza la plantilla app/views/index.scala.html
-    	//return ok("Hola mundo!");
+    public static Result  index() {
     	return redirect(routes.Application.peliculas());
     }
     
     public static Result peliculas(){
-    	return ok(views.html.index.render(new ArrayList<Pelicula>(), formularioPelicula));
+    	return ok(views.html.index.render(Pelicula.all(), formularioPelicula));
+    }
+    
+    public static Result comprarEntradas(){
+    	return TODO;
     }
     
     public static Result nuevaPelicula(){
@@ -31,10 +31,6 @@ public class Application extends Controller {
     	  }
     	  */
     	return ok("En la aplicacion web no se hacen tareas de administracion");
-    }
-    
-    public static Result borrar(Long id){
-    	return TODO;
     }
     
 	public static Form<Pelicula> formularioPelicula = Form.form(Pelicula.class);

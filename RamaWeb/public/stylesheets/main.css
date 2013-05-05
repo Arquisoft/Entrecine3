@@ -4,6 +4,15 @@ body {
 	font-family: Segoe UI, Arial, Verdana, Tahoma, sans-serif;
 }
 
+.pelicula {
+	margin:0px 25px 25px 25px;
+	border: 5px solid #000;
+}
+
+.titulo {
+	text-align:center;
+}
+
 table {
 	border-collapse: collapse;
 }

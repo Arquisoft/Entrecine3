@@ -10,18 +10,19 @@
     
     @for(pelicula <- peliculas){
 		<div class="pelicula">
-    		<h3>@pelicula.getTitulo()</h3>
-    		<p>@pelicula.getDescripcion()</p>
+    		<h3 class="titulo">@pelicula.getTitulo()</h3>
+    		<p class="descripcion">ñasdjfñlk</p>
+    		
+			<p> Comprar entradas:</p>
+			
+			@form(routes.Application.comprarEntradas()) {
+        		@inputText(formularioPeli("titulo"))
+        		<input type="submit" value="Comprar">
+        	}
+			
+			
+			
 		</div>
-    }
-
-    
-    <h2>Añadir nueva película</h2>
-    
-   
-    @form(routes.Application.nuevaPelicula()){
-    	@inputText(formularioPeli("Titulo"))
-    	<input type="submit" value="create">
     }
     
 }
