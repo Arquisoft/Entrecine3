@@ -1,24 +1,20 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Clase del modelo que representa los detalles de la venta del dominio
  * @author Project Team Entrecine3
  *
  */
-@Entity
-@Table(name="TDetalles_Ventas")
 public class DetallesVenta {
 	
-	@Id @GeneratedValue private int idDetallesVenta;
+	private int idDetallesVenta;
 	private int idVenta;
 	private int idProyeccion;
 	private int butaca;
-	private float precio;
+	private double precio;
+	
+	public DetallesVenta(){}
 	
 	/**
 	 * Constructor parametrizado con los índices necesarios
@@ -55,10 +51,17 @@ public class DetallesVenta {
 	public void setButaca(int butaca) {
 		this.butaca = butaca;
 	}
-	public float getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	@Override
+	public String toString() {
+		return "DetallesVenta [idDetallesVenta=" + idDetallesVenta
+				+ ", idVenta=" + idVenta + ", idProyeccion=" + idProyeccion
+				+ ", butaca=" + butaca + ", precio=" + precio + "]";
 	}
 }

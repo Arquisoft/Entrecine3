@@ -1,20 +1,14 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Clase del modelo que representa una sala en el dominio
  * @author Project Team Entrecine3
  *
  */
-@Entity
-@Table(name="TSalas")
 public class Sala {
 	
-	@Id @GeneratedValue private int idSala;
+	private int idSala;
 	private int numSala;
 	private int numButacas;
 	private String tipoSala;
