@@ -2,16 +2,20 @@ package conf;
 
 import persistence.ClienteGateway;
 import persistence.DatosBancariosGateway;
+import persistence.DetallesVentaGateway;
 import persistence.PeliculaGateway;
 import persistence.ProyeccionGateway;
 import persistence.SalaGateway;
 import persistence.TipoProyeccionGateway;
+import persistence.VentaGateway;
 import persistence.impl.ClienteGatewayImpl;
 import persistence.impl.DatosBancariosGatewayImpl;
+import persistence.impl.DetallesVentaGatewayImpl;
 import persistence.impl.PeliculaGatewayImpl;
 import persistence.impl.ProyeccionGatewayImpl;
 import persistence.impl.SalaGatewayImpl;
 import persistence.impl.TipoProyeccionGatewayImpl;
+import persistence.impl.VentaGatewayImpl;
 
 /**
  * Factoría de persistencia
@@ -65,6 +69,14 @@ public class PersistenceFactory {
 	 */
 	public static TipoProyeccionGateway getTipoProyeccionGateway(){
 		return new TipoProyeccionGatewayImpl();
+	}
+	
+	public static DetallesVentaGateway getDetallesVentaGateaway(){
+		return new DetallesVentaGatewayImpl();
+	}
+	
+	public static VentaGateway getVentaGateaway(){
+		return new VentaGatewayImpl();
 	}
 
 }
