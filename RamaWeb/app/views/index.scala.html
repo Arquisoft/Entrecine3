@@ -11,16 +11,9 @@
     @for(pelicula <- peliculas){
 		<div class="pelicula">
     		<h3 class="titulo">@pelicula.getTitulo()</h3>
-    		<p class="descripcion">ñasdjfñlk</p>
+    		<p class="descripcion">@pelicula.getDescripcion()</p>
     		
-			<p> Comprar entradas:</p>
-			
-			@form(routes.Application.comprarEntradas()) {
-        		@inputText(formularioPeli("titulo"))
-        		<input type="submit" value="Comprar">
-        	}
-			
-			
+			<a href="/comprarEntradas">Comprar entradas</a>
 			
 		</div>
     }

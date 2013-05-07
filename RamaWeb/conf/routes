@@ -8,7 +8,7 @@ GET     /                           controllers.Application.index()
 
 
 GET		/peliculas					controllers.Application.peliculas()
-POST	/peliculas					controllers.Application.comprarEntradas()
+GET		/comprarEntradas			controllers.Application.comprarEntradas()
 
 
 # Map static resources from the /public folder to the /assets URL path

@@ -18,6 +18,7 @@ public class Application extends Controller {
     
     public static Result comprarEntradas(){
     	return TODO;
+    	//return ok(views.html.comprarEntradas.render(new Pelicula()));
     }
     
     public static Result nuevaPelicula(){
@@ -29,6 +30,7 @@ public class Application extends Controller {
     		  Pelicula.crearPelicula(filledForm.get());
     	    return redirect(routes.Application.peliculas());  
     	  }
+    	  
     	  */
     	return ok("En la aplicacion web no se hacen tareas de administracion");
     }
