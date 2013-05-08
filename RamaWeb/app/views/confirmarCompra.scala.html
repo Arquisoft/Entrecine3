@@ -1,12 +1,18 @@
 @(fecha: String, correo: String, butaca: String)
 
 @main("Confirmar compra"){
-	<h1>Cines Entrecine3</h1>
+
+<div role="main" id="main">
+
+	<div id="respond">
 	
-	<h2>Confirmar compra</h2>
+	<h4 class="heading">Confirmar compra</h4>
 	
-	<p>Tienes una reserva para la fecha <b>@fecha</b> y la butaca @butaca.</p>
+	<p>Tienes una reserva para la fecha <span style="color:red">@fecha</span> y la butaca <span style="color:red">@butaca</span>.</p>
 	
-	<p>Se ha mandado un correo a la dirección <b>@correo</b> con el justificante a entregar en el cine.</p>
+	<p>Se ha mandado un correo a la dirección <span style="color:red">@correo</span> con el justificante a entregar en el cine.</p>
 	
+	</div>
+	
+</div>
 }

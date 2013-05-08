@@ -1,13 +1,16 @@
 @(pelicula: Integer)
 
 @main("Compra de entradas"){
-	<h1> Cines Entrecine3 </h1>
+
+<div role="main" id="main">
+
+	<div id="respond">
 	
-	<h2>Comprar entradas para @Pelicula.buscarPorId(pelicula).getTitulo()</h2>
+	<h4 class="heading">Comprar entradas para @Pelicula.buscarPorId(pelicula).getTitulo()</h4>
 	
 	@helper.form(routes.Application.confirmarCompra()){
 	
-	Seleccionar fecha y hora: 
+	Seleccionar fecha y hora:  
 	<select name="fecha">
 		@for(proyeccion <- Proyeccion.proyeccionesPorPelicula(pelicula)){
 			<option value="@proyeccion.getFechaProyeccion()"> @proyeccion.getFechaProyeccion()</option>
@@ -16,19 +19,25 @@
 	
 	<br>
 	
-	Seleccionar butaca:
+	Seleccionar butaca: 
 	<select name="butaca">
 		<option value="22"> 22 </option>
 	</select>
 	
 	<br>
 	
-	Correo electrónico:<input type="text" name="correo"/>
+	Correo electrónico: <input type="text" name="correo"/>
 	
 	<br>
 	
-	<input type="submit" value="Comprar">
+	<p class="form-submit">
+						<input name="submit" type="submit" id="submit" value="Comprar">
+	</p>
 	
 	}
+	
+	</div>
+	
+	</div>
 	
 }
