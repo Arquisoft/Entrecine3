@@ -1,7 +1,6 @@
 package controllers;
 
 import models.Pelicula;
-import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -13,28 +12,19 @@ public class Application extends Controller {
     }
     
     public static Result peliculas(){
-    	return ok(views.html.index.render(Pelicula.all(), formularioPelicula));
+    	return ok(views.html.index.render(Pelicula.all()));
     }
     
-    public static Result comprarEntradas(){
-    	return TODO;
-    	//return ok(views.html.comprarEntradas.render(new Pelicula()));
+    public static Result comprarEntradas(Integer idPelicula){
+    	return ok(views.html.comprarEntradas.render(idPelicula));
     }
     
-    public static Result nuevaPelicula(){
-    	/*Form<Pelicula> filledForm = formularioPelicula.bindFromRequest();
-    	  if(filledForm.hasErrors()) {
-    	    return ok(filledForm.errorsAsJson().toString());
-    		  //return badRequest(views.html.index.render(Pelicula.all(), filledForm));
-    	  } else {
-    		  Pelicula.crearPelicula(filledForm.get());
-    	    return redirect(routes.Application.peliculas());  
-    	  }
-    	  
-    	  */
-    	return ok("En la aplicacion web no se hacen tareas de administracion");
+    public static Result confirmarCompra(){
+    	String fecha = Controller.request().getQueryString("fecha");
+    	String correo = Controller.request().getQueryString("correo");
+    	String butaca = Controller.request().getQueryString("butaca");
+    	return ok(views.html.confirmarCompra.render(fecha, correo, butaca));
     }
     
-	public static Form<Pelicula> formularioPelicula = Form.form(Pelicula.class);
   
 }

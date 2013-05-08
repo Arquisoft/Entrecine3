@@ -1,4 +1,4 @@
-@(peliculas: List[Pelicula], formularioPeli: Form[Pelicula])
+@(peliculas: List[Pelicula])
 
 @import helper._
 
@@ -13,7 +13,9 @@
     		<h3 class="titulo">@pelicula.getTitulo()</h3>
     		<p class="descripcion">@pelicula.getDescripcion()</p>
     		
-			<a href="/comprarEntradas">Comprar entradas</a>
+			<a href="/comprarEntradas?idPelicula=@pelicula.getIdPelicula()">Comprar entradas</a>
+			
+			
 			
 		</div>
     }

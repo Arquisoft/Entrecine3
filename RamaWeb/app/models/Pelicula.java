@@ -41,7 +41,7 @@ public class Pelicula extends Model {
 	@OneToMany(mappedBy = "pelicula")
 	private Set<Proyeccion> proyeccion;
 	
-	public static Finder<Long,Pelicula> find = new Finder(Long.class, Pelicula.class);
+	private static Finder<Long,Pelicula> find = new Finder(Long.class, Pelicula.class);
 
 	public Pelicula() {
 	}
@@ -54,6 +54,11 @@ public class Pelicula extends Model {
 	public static List<Pelicula> all(){
 		return find.all();
 	}
+	
+	public static Pelicula buscarPorId(Integer id){
+		return find.ref(new Long(id));
+	}
+	
 
 	public Pelicula(String titulo, Date duracion, String genero,
 			String descripcion, String urlImagen) {
