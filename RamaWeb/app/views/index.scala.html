@@ -17,10 +17,12 @@
 			 <!-- Feature -->
 	 	 	<ul id="filter-container-feature" class="feature">
 	 	  	 	@for(pelicula <- peliculas){
-		 		<li>
-			 		<a href="single.html" class="thumb" ><img src="@routes.Assets.at("images/@pelicula.getUrlImagen()")" alt="" />
+		 		<li style="float:left">
+			 		<a href="/comprarEntradas?idPelicula=@pelicula.getIdPelicula()" class="thumb" >
+			 		<img src="/assets/images/pelis/@pelicula.getUrlImagen()" width="430" height="500"/>
 			 		</a>
 			 		<div class="caption">@pelicula.getTitulo()</div>
+			 		<div><p>@pelicula.getDescripcion()</p></div>
 		 		</li>
 		 		}
 			</ul>
