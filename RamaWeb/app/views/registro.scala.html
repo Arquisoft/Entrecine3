@@ -1,0 +1,15 @@
+
+
+@main("Registro en el entrecine"){
+	
+	@helper.form(routes.Application.peliculas()){
+		Nombre: <input type="text" name="nombre"> <br>
+		Apellidos: <input type="text" name="apellidos"> <br>
+		Número de tarjeta de crédito: <input type="text" name="dni"> <br>
+		Fecha de nacimiento: <input type="date" name="fecha_nacimiento"> <br>
+		
+		<input type="submit" value="Registrar">
+			
+	}
+
+}

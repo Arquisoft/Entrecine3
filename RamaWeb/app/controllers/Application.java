@@ -26,5 +26,13 @@ public class Application extends Controller {
     	return ok(views.html.confirmarCompra.render(fecha, correo, butaca));
     }
     
+    public static Result registrar(){
+    	return ok(views.html.registro.render());
+    }
+    
+    public static Result loggear(){
+    	return ok(views.html.login.render());
+    }
+    
   
 }
