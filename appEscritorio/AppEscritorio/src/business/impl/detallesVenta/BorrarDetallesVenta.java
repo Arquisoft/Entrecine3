@@ -6,19 +6,15 @@ import persistence.DetallesVentaGateway;
 import util.Jdbc;
 import conf.PersistenceFactory;
 
-public class GuardarDetallesVenta {
-	
-	int idProyeccion, idVentas, butaca; double precio;
-	
-	public GuardarDetallesVenta(int idProyeccion, int idVentas, int butaca,
-			double precio) {
+public class BorrarDetallesVenta {
+
+	int idVenta;
+
+	public BorrarDetallesVenta(int idVenta) {
 		super();
-		this.idProyeccion = idProyeccion;
-		this.idVentas = idVentas;
-		this.butaca = butaca;
-		this.precio = precio;
+		this.idVenta = idVenta;
 	}
-	
+
 	public void execute() {
 
 		Connection connection = null;
@@ -28,14 +24,13 @@ public class GuardarDetallesVenta {
 
 			connection = Jdbc.getConnection();
 			venta.setConnection(connection);
-			venta.save(idProyeccion, idVentas, butaca, precio);
-			
+			venta.deleteByIdVenta(idVenta);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			Jdbc.close(connection);
 		}
-		
-	}
 
+	}
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import persistence.ClienteGateway;
+import util.BusinessException;
 import util.Jdbc;
 import conf.PersistenceFactory;
 
@@ -15,7 +16,7 @@ public class BorrarCliente {
 		this.dni = dni;
 	}
 
-	public void borrarCliente() {
+	public void execute() throws BusinessException{
 
 		Connection connection = null;
 
@@ -27,7 +28,7 @@ public class BorrarCliente {
 			cliente.delete(dni);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			Jdbc.close(connection);
 		}

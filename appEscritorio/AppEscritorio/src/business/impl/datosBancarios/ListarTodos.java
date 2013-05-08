@@ -10,7 +10,7 @@ import model.DatosBancarios;
 
 public class ListarTodos {
 
-	public List<DatosBancarios> ListarDatosBancarios() {
+	public List<DatosBancarios> execute() {
 		Connection connection = null;
 		List<DatosBancarios> lista = null;
 		DatosBancariosGateway datos = PersistenceFactory.getDatosBancariosGateway();

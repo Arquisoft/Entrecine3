@@ -14,7 +14,7 @@ public class BorrarVenta {
 		this.id = id;
 	}
 
-	public void borrarCliente() {
+	public void execute() {
 
 		Connection connection = null;
 		VentaGateway venta = PersistenceFactory.getVentaGateaway();

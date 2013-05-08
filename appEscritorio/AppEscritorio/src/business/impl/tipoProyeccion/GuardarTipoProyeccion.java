@@ -15,7 +15,7 @@ public class GuardarTipoProyeccion {
 		this.precio = precio;
 	}
 
-	public void guardarTipoProyeccion() {
+	public void execute() {
 
 		Connection connection = null;
 		TipoProyeccionGateway tipo = PersistenceFactory.getTipoProyeccionGateway();

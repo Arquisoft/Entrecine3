@@ -11,7 +11,7 @@ import model.Pelicula;
 
 public class ListarTodos {
 
-	public List<Pelicula> ListarClientes() {
+	public List<Pelicula> execute() {
 		Connection connection = null;
 		List<Pelicula> lista = null;
 

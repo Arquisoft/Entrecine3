@@ -16,7 +16,7 @@ public class GuardarVenta {
 		this.fechaVenta = fechaVenta;
 	}
 
-	public void guardarVenta() {
+	public void execute() {
 
 		Connection connection = null;
 		VentaGateway venta = PersistenceFactory.getVentaGateaway();

@@ -9,7 +9,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public DatosBancarios ListarDatosBancarios(int id) {
+	public DatosBancarios execute(int id) {
 
 		Connection connection = null;
 		DatosBancariosGateway datos = PersistenceFactory.getDatosBancariosGateway();

@@ -19,7 +19,7 @@ public class ActualizarSala {
 		this.tipoSala = tipoSala;
 	}
 
-	public void actualizarSala() {
+	public void execute() {
 
 		Connection connection = null;
 		SalaGateway sala =PersistenceFactory.getSalaGateway();

@@ -20,7 +20,7 @@ public class GuardarPelicula {
 		this.imagen = imagen;
 	}
 
-	public void guardarCliente() {
+	public void execute() {
 
 		Connection connection = null;
 		PeliculaGateway pelicula = PersistenceFactory.getPeliculaGateway();

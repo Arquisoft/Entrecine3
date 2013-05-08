@@ -14,7 +14,7 @@ public class BorrarTipoProyeccion {
 		this.nombreTipo = nombreTipo;
 	}
 
-	public void borrarTipoProyeccion() {
+	public void execute() {
 
 		Connection connection = null;
 		TipoProyeccionGateway tipoP = PersistenceFactory.getTipoProyeccionGateway();

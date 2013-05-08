@@ -17,7 +17,7 @@ public class GuardarSala {
 		this.tipoSala = tipoSala;
 	}
 
-	public void guardarSala() {
+	public void execute() {
 
 		Connection connection = null;
 		SalaGateway sala = PersistenceFactory.getSalaGateway();

@@ -10,7 +10,7 @@ import model.DetallesVenta;
 
 public class ListarTodos {
 
-	public List<DetallesVenta> ListarDetallesVentas() {
+	public List<DetallesVenta> execute() {
 
 		Connection connection = null;
 		DetallesVentaGateway venta = PersistenceFactory.getDetallesVentaGateaway();		

@@ -10,7 +10,7 @@ import model.TipoProyeccion;
 
 public class ListarTodos {
 
-	public List<TipoProyeccion> ListarClientes() {
+	public List<TipoProyeccion> execute() {
 		Connection connection = null;
 		List<TipoProyeccion> lista = null;
 		TipoProyeccionGateway tipo = PersistenceFactory.getTipoProyeccionGateway();

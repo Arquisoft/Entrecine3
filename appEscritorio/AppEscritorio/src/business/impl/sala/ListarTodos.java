@@ -10,7 +10,7 @@ import model.Sala;
 
 public class ListarTodos {
 
-	public List<Sala> ListarSalas() {
+	public List<Sala> execute() {
 		Connection connection = null;
 		List<Sala> lista = null;
 		SalaGateway sala = PersistenceFactory.getSalaGateway();

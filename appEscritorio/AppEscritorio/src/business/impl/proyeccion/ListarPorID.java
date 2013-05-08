@@ -9,7 +9,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public Proyeccion ListarProyeccion(int id) {
+	public Proyeccion execute(int id) {
 
 		Connection connection = null;
 

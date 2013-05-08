@@ -14,7 +14,7 @@ public class BorrarPelicula {
 		this.titulo = titulo;
 	}
 
-	public void borrarPelicula() {
+	public void execute() {
 
 		Connection connection = null;
 		PeliculaGateway pelicula = PersistenceFactory.getPeliculaGateway();

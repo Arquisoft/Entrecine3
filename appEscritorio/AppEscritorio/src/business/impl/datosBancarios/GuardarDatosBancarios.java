@@ -8,14 +8,13 @@ import conf.PersistenceFactory;
 
 public class GuardarDatosBancarios {
 
-	int idDatosBancarios, idCliente, numTarjeta, pin, mes_caducidad,
+	int idCliente, numTarjeta, pin, mes_caducidad,
 			anio_caducidad;
 	String nombre, apellidos;
 
-	public GuardarDatosBancarios(int idDatosBancarios, int idCliente,
+	public GuardarDatosBancarios(int idCliente,
 			int numTarjeta, int pin, int mes_caducidad, int anio_caducidad,
 			String nombre, String apellidos) {
-		this.idDatosBancarios = idDatosBancarios;
 		this.idCliente = idCliente;
 		this.numTarjeta = numTarjeta;
 		this.pin = pin;
@@ -25,7 +24,7 @@ public class GuardarDatosBancarios {
 		this.apellidos = apellidos;
 	}
 
-	public void guardarDatosBancarios() {
+	public void execute() {
 
 		Connection connection = null;
 		DatosBancariosGateway datos = PersistenceFactory.getDatosBancariosGateway();

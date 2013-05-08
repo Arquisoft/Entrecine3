@@ -9,7 +9,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public Venta ListarVentas(int id) {
+	public Venta execute(int id) {
 
 		Connection connection = null;
 		VentaGateway venta = PersistenceFactory.getVentaGateaway();

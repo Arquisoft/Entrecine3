@@ -12,7 +12,7 @@ import model.Proyeccion;
 
 public class ListarTodos {
 
-	public List<Proyeccion> ListarProyeccion() {
+	public List<Proyeccion> execute() {
 
 		Connection connection = null;
 		List<Proyeccion> lista = null;

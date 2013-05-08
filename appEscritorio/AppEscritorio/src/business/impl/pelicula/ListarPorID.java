@@ -9,7 +9,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public Pelicula ListarPeliculas(int id) {
+	public Pelicula execute(int id) {
 
 		Connection connection = null;
 		PeliculaGateway pelicula = PersistenceFactory.getPeliculaGateway();		

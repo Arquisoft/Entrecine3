@@ -9,7 +9,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public Sala ListarSalas(int id) {
+	public Sala execute(int id) {
 
 		Connection connection = null;
 		SalaGateway sala = PersistenceFactory.getSalaGateway();		

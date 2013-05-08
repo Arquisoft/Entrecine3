@@ -21,7 +21,7 @@ public class ActualizarPelicula {
 	}
 
 
-	public void actualizarPelicula() {
+	public void execute() {
 
 		Connection connection = null;
 		PeliculaGateway peliculas = PersistenceFactory.getPeliculaGateway();

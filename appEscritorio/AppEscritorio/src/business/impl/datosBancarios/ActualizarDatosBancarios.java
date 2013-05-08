@@ -25,7 +25,7 @@ public class ActualizarDatosBancarios {
 		this.apellidos = apellidos;
 	}
 
-	public void actualizarDatosBacarios() {
+	public void execute() {
 
 		Connection connection = null;
 		DatosBancariosGateway datos = PersistenceFactory

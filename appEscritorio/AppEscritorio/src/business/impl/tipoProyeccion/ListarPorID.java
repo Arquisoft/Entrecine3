@@ -9,7 +9,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public TipoProyeccion ListarTipoProyeccion(int id) {
+	public TipoProyeccion execute(int id) {
 
 		Connection connection = null;
 		TipoProyeccionGateway tipo = PersistenceFactory.getTipoProyeccionGateway();

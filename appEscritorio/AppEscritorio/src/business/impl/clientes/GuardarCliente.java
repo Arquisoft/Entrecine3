@@ -23,7 +23,7 @@ public class GuardarCliente {
 		this.anio_nacimiento = anio_nacimiento;
 	}
 	
-	public void execute() {
+	public void execute(){
 
 		Connection connection = null;
 
@@ -35,7 +35,7 @@ public class GuardarCliente {
 			cliente.save(dni, nombre, apellidos, email, dia_nacimiento, mes_nacimiento, anio_nacimiento);
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			Jdbc.close(connection);
 		}

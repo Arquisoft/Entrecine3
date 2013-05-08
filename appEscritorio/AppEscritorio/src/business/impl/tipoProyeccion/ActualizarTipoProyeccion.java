@@ -18,7 +18,7 @@ public class ActualizarTipoProyeccion {
 		this.precio = precio;
 	}
 
-	public void actualizarTipoProyeccion() {
+	public void execute() {
 
 		Connection connection = null;
 		TipoProyeccionGateway proyeccion = PersistenceFactory.getTipoProyeccionGateway();

@@ -11,7 +11,7 @@ import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public List<DetallesVenta> ListarPorId(int idVenta) {
+	public List<DetallesVenta> execute(int idVenta) {
 
 		Connection connection = null;
 		DetallesVentaGateway venta = PersistenceFactory.getDetallesVentaGateaway();		

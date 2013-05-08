@@ -15,7 +15,7 @@ public class BorrarSala {
 	}
 
 
-	public void borrarSala() {
+	public void execute() {
 
 		Connection connection = null;
 		SalaGateway sala = PersistenceFactory.getSalaGateway();

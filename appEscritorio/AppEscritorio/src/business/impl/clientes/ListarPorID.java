@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import model.Cliente;
 import persistence.ClienteGateway;
+import util.BusinessException;
 import util.Jdbc;
 import conf.PersistenceFactory;
 
 public class ListarPorID {
 
-	public Cliente ListarClientes(int id) {
+	public Cliente execute(int id) throws BusinessException{
 
 		Connection connection = null;
 
@@ -22,7 +23,7 @@ public class ListarPorID {
 			c = cliente.findById(id);
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			Jdbc.close(connection);
 		}

@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import java.util.List;
 import conf.PersistenceFactory;
 import persistence.ClienteGateway;
+import util.BusinessException;
 import util.Jdbc;
 import model.Cliente;
 
 public class ListarTodos {
 
-	public List<Cliente> ListarClientes() {
+	public List<Cliente> execute() throws BusinessException {
 		Connection connection = null;
 		List<Cliente> lista = null;
 
@@ -22,7 +23,7 @@ public class ListarTodos {
 			lista = cliente.findAll();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			Jdbc.close(connection);
 		}

@@ -20,7 +20,7 @@ public class BorrarProyeccion {
 
 
 
-	public void borrarProyeccion() {
+	public void execute() {
 
 		Connection connection = null;
 		ProyeccionGateway proyeccion = PersistenceFactory.getProyeccionGateway();

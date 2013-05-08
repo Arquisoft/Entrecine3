@@ -5,12 +5,13 @@ import java.sql.SQLException;
 
 import model.Cliente;
 import persistence.ClienteGateway;
+import util.BusinessException;
 import util.Jdbc;
 import conf.PersistenceFactory;
 
 public class ListarPorDNI {
 	
-	public Cliente ListarClientes(String dni) {
+	public Cliente execute(String dni) throws BusinessException{
 
 		Connection connection = null;
 
@@ -23,7 +24,7 @@ public class ListarPorDNI {
 			c = cliente.findByDni(dni);
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			Jdbc.close(connection);
 		}

@@ -2,33 +2,31 @@ package business.impl.datosBancarios;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import model.DatosBancarios;
 import persistence.DatosBancariosGateway;
+import util.BusinessException;
 import util.Jdbc;
 import conf.PersistenceFactory;
 
-public class BorrarDatosBancarios {
-
-	int numTarjeta;
-
-	public BorrarDatosBancarios(int numTarjeta) {
-		this.numTarjeta = numTarjeta;
-	}
-
-	public void execute() {
+public class ListarPorTarjeta {
+	
+	public DatosBancarios execute(int numTarjeta) throws BusinessException{
 
 		Connection connection = null;
 		DatosBancariosGateway datos = PersistenceFactory.getDatosBancariosGateway();
+		DatosBancarios db = new DatosBancarios();
+		
 		try {
 
 			connection = Jdbc.getConnection();
 			datos.setConnection(connection);
-			datos.delete(numTarjeta);
-
+			db = datos.findByNumTarjeta(numTarjeta);
+			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} finally {
 			Jdbc.close(connection);
 		}
-
+		return db;
 	}
 }

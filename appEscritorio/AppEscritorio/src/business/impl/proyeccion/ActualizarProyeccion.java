@@ -31,7 +31,7 @@ public class ActualizarProyeccion {
 
 
 
-	public void actualizarProyeccion() {
+	public void execute() {
 
 		Connection connection = null;
 		ProyeccionGateway proyeccion = PersistenceFactory
