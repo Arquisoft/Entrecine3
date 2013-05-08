@@ -1,15 +1,35 @@
 
 
 @main("Registro en el entrecine"){
+
+<div role="main" id="main">
+
+	<div id="respond">
+	
+	<h4 class="heading">REGISTRO</h4>
+	
+	<center>
+	
+	<form action="/peliculas" method="post" id="commentform">
 	
 	@helper.form(routes.Application.peliculas()){
-		Nombre: <input type="text" name="nombre"> <br>
-		Apellidos: <input type="text" name="apellidos"> <br>
-		Número de tarjeta de crédito: <input type="text" name="dni"> <br>
-		Fecha de nacimiento: <input type="date" name="fecha_nacimiento"> <br>
-		
-		<input type="submit" value="Registrar">
+		<p class="comment-notes">Nombre: <input type="text" name="nombre"></p>
+		<p class="comment-notes">Apellidos: <input type="text" name="apellidos"> </p>
+		<p class="comment-notes">Número de tarjeta de crédito: <input type="text" name="dni"> </p>
+		<p class="comment-notes">Fecha de nacimiento: <input type="date" name="fecha_nacimiento"> </p>
+		</br>
+		<p class="form-submit">
+		<input type="submit" value="Registrar" id="submit">
+		</p>
 			
 	}
+	
+	</form>
+	
+	</center>
+	
+	</div>
+	
+</div>
 
 }
