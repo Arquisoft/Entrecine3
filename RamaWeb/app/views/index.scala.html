@@ -5,17 +5,28 @@
 <!-- El argumento del main es lo que sale en la pestaña del navegador -->
 
 @main("Cartelera") {
-    
-    <h1> Cines Entrecine3 </h1>
-    
-    @for(pelicula <- peliculas){
-		<div class="pelicula">
-    		<h3 class="titulo">@pelicula.getTitulo()</h3>
-    		<p class="descripcion">@pelicula.getDescripcion()</p>
-    		
-			<a href="/comprarEntradas">Comprar entradas</a>
+	
+	<div role="main" id="main">
+	
+		<div class="wrapper">
+		
+			<div class="headline">
+				CARTELERA
+			</div>
+	
+			 <!-- Feature -->
+	 	 	<ul id="filter-container-feature" class="feature">
+	 	  	 	@for(pelicula <- peliculas){
+		 		<li>
+			 		<a href="single.html" class="thumb" ><img src="@routes.Assets.at("images/@pelicula.getUrlImagen()")" alt="" />
+			 		</a>
+			 		<div class="caption">@pelicula.getTitulo()</div>
+		 		</li>
+		 		}
+			</ul>
 			
 		</div>
-    }
+		 
+	</div>
     
 }
