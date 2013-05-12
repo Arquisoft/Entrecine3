@@ -111,4 +111,20 @@ public class SalaGatewayImpl implements SalaGateway{
 		
 	}
 
+	@Override
+	public void update(int idSala, int numSala, int numButacas, String tipoSala)
+			throws SQLException {
+		
+		PreparedStatement pst = null;
+
+		pst = connection.prepareStatement(Conf.get("SQL_UPDATE_SALA"));
+		pst.setInt(1, numSala);
+		pst.setInt(2, numButacas);
+		pst.setString(3, tipoSala);
+		pst.setInt(4, idSala);
+
+		pst.executeUpdate();
+		
+	}
+
 }

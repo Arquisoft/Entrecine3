@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,6 +118,28 @@ public class ProyeccionGatewayImpl implements ProyeccionGateway {
 		pst.setInt(3, tipoProyeccion);
 		pst.executeUpdate();
 
+	}
+
+	@Override
+	public void update(int idProyeccion, int idPelicula, int idSala,
+			int dia_proyeccion, int mes_proyeccion, int anio_proyeccion,
+			int hora_proyeccion, int minuto_proyeccion, int segundo_proyeccion,
+			int tipoProyeccion) throws SQLException {
+		
+		PreparedStatement pst = null;
+
+		pst = connection.prepareStatement(Conf.get("SQL_UPDATE_PROYECCION"));
+		pst.setInt(1, idPelicula);
+		pst.setInt(2, idSala);
+		String fechaProyeccion = String.valueOf(anio_proyeccion + "-"
+				+ mes_proyeccion + "-" + dia_proyeccion + " " + hora_proyeccion
+				+ ":" + minuto_proyeccion + ":" + segundo_proyeccion);
+		pst.setString(3, fechaProyeccion);
+		pst.setInt(4, tipoProyeccion);
+		pst.setInt(5, idProyeccion);
+
+		pst.executeUpdate();
+		
 	}
 
 }

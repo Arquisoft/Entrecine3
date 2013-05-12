@@ -4,23 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
+import model.Cliente;
 import persistence.ClienteGateway;
-
 import util.Jdbc;
-
 import conf.Conf;
 
-import model.Cliente;
-
 public class ClienteGatewayImpl implements ClienteGateway {
-	
+
 	private Connection connection;
 
 	@Override
@@ -32,7 +25,7 @@ public class ClienteGatewayImpl implements ClienteGateway {
 	@SuppressWarnings("finally")
 	@Override
 	public List<Cliente> findAll() {
-		
+
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		List<Cliente> lista = new ArrayList<Cliente>();
@@ -97,16 +90,20 @@ public class ClienteGatewayImpl implements ClienteGateway {
 
 	@Override
 	public void save(String dni, String nombre, String apellidos, String email,
-			int dia_nacimiento, int mes_nacimiento, int anio_nacimiento) throws SQLException {
+			int dia_nacimiento, int mes_nacimiento, int anio_nacimiento)
+			throws SQLException {
 		PreparedStatement pst = null;
 
 		pst = connection.prepareStatement(Conf.get("SQL_ADD_CLIENT"));
-		
+
 		pst.setString(1, dni);
 		pst.setString(2, nombre);
 		pst.setString(3, apellidos);
 		pst.setString(4, email);
-		pst.setString(5, String.valueOf(anio_nacimiento+"-"+mes_nacimiento+"-"+dia_nacimiento));
+		pst.setString(
+				5,
+				String.valueOf(anio_nacimiento + "-" + mes_nacimiento + "-"
+						+ dia_nacimiento));
 
 		pst.executeUpdate();
 
@@ -115,16 +112,17 @@ public class ClienteGatewayImpl implements ClienteGateway {
 	@Override
 	public void delete(String dni) {
 		PreparedStatement pst = null;
-		
+
 		try {
 			pst = connection.prepareStatement(Conf.get("SQL_DELETE_CLIENT"));
 			pst.setString(1, dni);
-			
+
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en ClienteGatewayImpl a la hora de borrar, método delete.");
-		}	
+			System.out
+					.println("Error en ClienteGatewayImpl a la hora de borrar, método delete.");
+		}
 	}
 
 	@SuppressWarnings("finally")
@@ -162,25 +160,30 @@ public class ClienteGatewayImpl implements ClienteGateway {
 	}
 
 	@Override
-	public void update(int idCliente, String dni, String nombre, String apellidos, String email,
-			int dia_nacimiento, int mes_nacimiento, int anio_nacimiento) {
+	public void update(int idCliente, String dni, String nombre,
+			String apellidos, String email, int dia_nacimiento,
+			int mes_nacimiento, int anio_nacimiento) {
 		PreparedStatement pst = null;
-		
+
 		try {
 			pst = connection.prepareStatement(Conf.get("SQL_UPDATE_CLIENT"));
 			pst.setString(1, dni);
 			pst.setString(2, nombre);
 			pst.setString(3, apellidos);
 			pst.setString(4, email);
-			pst.setString(5, String.valueOf(anio_nacimiento+"-"+mes_nacimiento+"-"+dia_nacimiento));
+			pst.setString(
+					5,
+					String.valueOf(anio_nacimiento + "-" + mes_nacimiento + "-"
+							+ dia_nacimiento));
 			pst.setInt(6, idCliente);
 
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error en ClienteGatewayImpl a la hora de UPDATE");
+			System.out
+					.println("Error en ClienteGatewayImpl a la hora de UPDATE");
 		}
-		
+
 	}
 
 }

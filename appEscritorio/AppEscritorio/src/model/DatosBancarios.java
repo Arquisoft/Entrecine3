@@ -2,16 +2,15 @@ package model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="TDatos_bancarios")
+/**
+ * Clase de modelo que representa los datos bancarios de un cliente en el dominio
+ * 
+ * @author Project Team Entrecine3
+ * 
+ */
 public class DatosBancarios {
 	
-	@Id @GeneratedValue private int idDatosBancarios;
+	private int idDatosBancarios;
 	private int idCliente;
 	private int numTarjeta;
 	private String nombre;
@@ -34,6 +33,17 @@ public class DatosBancarios {
 		this.idCliente = idCliente;
 	}
 	
+	public DatosBancarios(int idCliente, int numTarjeta,
+			String nombre, String apellidos, int pin, Date fechaCaducidad) {
+		super();
+		this.idCliente = idCliente;
+		this.numTarjeta = numTarjeta;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.pin = pin;
+		this.fechaCaducidad = fechaCaducidad;
+	}
+
 	public int getIdDatosBancarios() {
 		return idDatosBancarios;
 	}

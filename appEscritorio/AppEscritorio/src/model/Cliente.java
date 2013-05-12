@@ -1,16 +1,6 @@
 package model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * Clase de modelo que representa un cliente en el dominio
@@ -18,23 +8,33 @@ import javax.persistence.TemporalType;
  * @author Project Team Entrecine3
  * 
  */
-@Entity
-@Table(name = "TClientes")
 public class Cliente {
 
-	@Id
-	@GeneratedValue
 	private int idCliente;
 	private String dni;
 	private String nombre;
 	private String apellidos;
 	private String email;
-	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
+	
+	public Cliente(){
+		
+	}
 
-	// Lista para mapeador
-	@OneToMany(mappedBy = "cliente")
-	private Set<DatosBancarios> datosBancarios = new HashSet<DatosBancarios>();
+	public Cliente(String dni){
+		super();
+		this.dni = dni;
+	}
+	
+	public Cliente(String dni, String nombre, String apellidos, String email,
+			Date fechaNacimiento) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fechaNacimiento = fechaNacimiento;
+	}
 
 	public int getIdCliente() {
 		return idCliente;
