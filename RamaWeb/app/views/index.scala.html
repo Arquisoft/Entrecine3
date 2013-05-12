@@ -1,0 +1,34 @@
+@(peliculas: List[Pelicula])
+
+@import helper._
+
+<!-- El argumento del main es lo que sale en la pestaña del navegador -->
+
+@main("Cartelera") {
+
+	<div role="main" id="main">
+	
+		<div class="wrapper">
+		
+			<div class="headline">
+				CARTELERA
+			</div>
+	
+			 <!-- Feature -->
+	 	 	<ul id="filter-container-feature" class="feature">
+	 	  	 	@for(pelicula <- peliculas){
+		 		<li style="float:left">
+			 		<a href="/comprarEntradas?idPelicula=@pelicula.getIdPelicula()" class="thumb" >
+			 		<img src="/assets/images/pelis/@pelicula.getUrlImagen()" width="430" height="500"/>
+			 		</a>
+			 		<div class="caption">@pelicula.getTitulo()</div>
+			 		<div><p>@pelicula.getDescripcion()</p></div>
+		 		</li>
+		 		}
+			</ul>
+			
+		</div>
+		 
+	</div>
+    
+}

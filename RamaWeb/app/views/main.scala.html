@@ -1,0 +1,50 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/superfish.css")" /> 
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/nivo-slider.css")" media="all"  /> 
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/tweet.css")" media="all"  />
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/style.css")" >
+		<link rel="stylesheet" media="all" href="@routes.Assets.at("stylesheets/lessframework.css")" />
+		<script src="@routes.Assets.at("javascripts/modernizr-2.5.3.min.js")"></script>
+    </head>
+    
+    <!-- HEADER -->
+	<header>
+		
+		<!-- header wrapper -->
+		<div class="wrapper cf">
+			<div id="logo">
+				<a href="peliculas" ><img src="@routes.Assets.at("images/logo.png")" alt="" /></a>
+			</div>
+		</div><!-- ENDS header wrapper -->
+		
+		
+		
+		<!-- nav -->
+		<nav class="cf">
+			<div class="wrapper cf">
+				<ul id="nav" class="sf-menu">
+					<li><a href="blog.html"><a href="loggin">LOGGIN<i><b></b></i></a></li>
+					<li><a href="blog.html"><a href="registro">REGISTRARSE<i><b></b></i></a></li>
+				</ul>
+				<div id="combo-holder"></div>
+			</div>
+		</nav>
+		<!-- ends nav -->
+			
+	</header>
+	<!-- ENDS HEADER -->
+	
+	
+    <body>
+        @content
+    </body>
+</html>
